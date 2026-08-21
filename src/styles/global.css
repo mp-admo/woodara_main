@@ -1,0 +1,53 @@
+@import "./fonts.css";
+
+html {
+    font-size: 62.5%; /* 1rem ровно 10px вместо 16px */
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem; 
+}
+
+@media (max-width: 768px) {
+
+    html {
+        scroll-padding-top: 2rem;
+    }
+
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: #151516;
+    background-color: #F4F3F0;
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'TT Firs Neue', sans-serif;
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: #151516;
+    margin: 0;
+}
+
+h1 {
+    font-size: 6.4rem;
+}
+
+h2 {
+    font-size: 5.2rem;
+}
+
+h3 {
+    font-size: 4.2rem;
+}
+
+h4 {
+    font-size: 2.4rem;
+}
+
+h5 {
+    font-size: 1.6rem;
+}
