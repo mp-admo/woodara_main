@@ -1,0 +1,218 @@
+---
+
+---
+<section class="audience">
+
+    <div class="container">
+
+        <div class="audience__header">
+
+            <div class="audience__eyebrow">
+                <span>03</span>
+                Who this is built for
+            </div>
+
+            <div class="audience__header-content">
+
+                <h3 class="audience__title">
+                    Built for the people who carry the risk on site
+                </h3>
+
+                <p class="audience__description">
+                    Not a furniture catalogue — a control system for the part of your project that's hardest to predict: dozens of vendors, a factory floor you can't see, and a delivery date your own client is counting on.
+                </p>
+
+            </div>
+
+        </div>
+
+        <ul class="audience__list">
+
+            <li class="audience__item">
+
+                <span class="audience__item-label">
+                    Who this is built for
+                </span>
+
+                <h4 class="audience__item-title">
+                    Furnish 6 to 140 units without hiring a procurement team
+                </h4>
+
+                <p class="audience__item-description">
+                    Not a furniture catalogue — a control system for the part of your project that's hardest to predict: dozens of vendors, a factory floor you can't see, and a delivery date your own client is counting on.
+                </p>
+
+            </li>
+
+            <li class="audience__item">
+
+                <span class="audience__item-label">
+                    Hospitality & F&B
+                </span>
+
+                <h4 class="audience__item-title">
+                    Furniture built to stay open, and a warranty line that answers
+                </h4>
+
+                <p class="audience__item-description">
+                    Certified, durable materials chosen for daily commercial use, plus after-sales service — because for a hotel or restaurant, a week of downtime costs more than the furniture itself.
+                </p>
+
+            </li>
+
+            <li class="audience__item">
+
+                <span class="audience__item-label">
+                    PMS & Procurement
+                </span>
+
+                <h4 class="audience__item-title">
+                    A production timeline you can put in front of your own client
+                </h4>
+
+                <p class="audience__item-description">
+                    Weekly production reporting, interim inspections and a technical partner who catches a spec problem before it reaches the factory floor — not after the container ships.
+                </p>
+
+            </li>
+
+        </ul>
+
+    </div>
+
+</section>
+
+<style>
+
+    .audience {
+        background-color: #F4F3F0;
+        padding: 10rem 0 0;
+        border-top: 0.05rem solid #888888;
+        border-bottom: 0.05rem solid #888888;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 140rem;
+        padding: 0 2rem;
+        margin: 0 auto;
+    }
+
+    .audience__header {
+        margin-bottom: 6rem;
+    }
+
+    .audience__eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-family: 'TT Firs Neue', sans-serif;
+        color: #58585A;
+        font-size: 1.6rem;
+        letter-spacing: -0.03rem;
+        text-transform: uppercase;
+        margin-bottom: 6rem;
+    }
+
+    .audience__eyebrow::before {
+        content: "";
+        width: 2rem;
+        height: 0.1rem;
+        background-color: #888888;
+        flex-shrink: 0;
+    }
+
+    .audience__eyebrow span {
+        color: #2E7C77;
+    }
+
+    .audience__header-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6rem;
+        align-items: end;
+    }
+
+    .audience__title {
+        max-width: 60rem;
+        color: #151516;
+        font-size: clamp(3.8rem, 4.4vw, 4.2rem);
+        margin: 0;
+    }
+
+    .audience__description {
+        max-width: 60rem;
+        color: #58585A;
+        font-size: 1.6rem;
+        line-height: 1.4;
+        margin: 0;
+        margin-bottom: 1rem;
+    }
+
+    .audience__list {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .audience__list::before,
+    .audience__list::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        width: 100vw;
+        height: 0.05rem;
+        background-color: #888888;
+        transform: translateX(-50%);
+        pointer-events: none;
+    }
+
+    .audience__list::before {
+        top: 0;
+    }
+
+    .audience__list::after {
+        bottom: 0;
+    }
+
+    .audience__item {
+        padding: 4rem;
+        border-right: 0.05rem solid #888888;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .audience__item:first-child {
+        padding-left: 0;
+    }
+
+    .audience__item:last-child {
+        border-right: none;
+    }
+
+    .audience__item-label {
+        font-family: 'TT Firs Neue', sans-serif;
+        color: #58585A;
+        font-size: 1.6rem;
+        letter-spacing: -0.03em;
+        text-transform: uppercase;
+        margin-bottom: 5rem;
+    }
+
+    .audience__item-title {
+        max-width: 38rem;
+        color: #151516;
+        margin-bottom: 4rem;
+    }
+
+    .audience__item-description {
+        max-width: 48rem;
+        color: #58585A;
+        font-size: 1.6rem;
+        line-height: 1.4;
+    }
+
+</style>
