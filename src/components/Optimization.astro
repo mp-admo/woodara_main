@@ -1,0 +1,261 @@
+---
+
+---
+
+<section class="optimization">
+
+    <div class="container">
+
+        <div class="optimization__main">
+
+            <div class="optimization__content">
+
+                <div class="optimization__eyebrow">
+                    <span>08</span>
+                    Design that costs less to build
+                </div>
+
+                <h2 class="optimization__title">
+                    Optimizing the spec isn't the same as cutting the design.
+                </h2>
+
+                <div class="optimization__text">
+
+                    <p>
+                        A bloated quote doesn't survive being compared against other suppliers, so proposing one costs us the tender, not just your trust — right-sizing your spec is how we win the work, not a favor on top of it. It comes back in tiers, not one number, because there's more than one way to hit a budget without touching the design intent. On a real 45-room hotel, a moderate pass on construction and materials cut the furniture spec by 23%; pushing further — different joinery, different install method, same nine pieces per room — got to 26%. Original spec: roughly $247,500. Re-engineered: $182,200-191,600.
+                    </p>
+
+                    <p>
+                        Your own range depends on what you're willing to trade at each tier and your own materials — this is what it looked like on one real project, not a promised percentage.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="optimization__stat">
+
+                <div class="optimization__number">
+                    23-26<span>%</span>
+                </div>
+
+                <div class="optimization__label">
+                    Cost reduction on a real 45-room hotel fit-out<br>
+                    in Bali — without changing the design
+                </div>
+
+                <a href="#" class="optimization__button">
+                    Optimize my project's budget
+                </a>
+
+            </div>
+
+        </div>
+
+        <ul class="optimization__results">
+
+            <li class="optimization__result">
+                <h3 class="optimization__result-number">
+                    -37%
+                </h3>
+
+                <p>
+                    Entry door — hidden-mount instead of sliding-in-frame
+                </p>
+            </li>
+
+            <li class="optimization__result">
+                <h3 class="optimization__result-number">
+                    -33%
+                </h3>
+
+                <p>
+                    Sofa — matched stitch detail instead of deep tufting
+                </p>
+            </li>
+
+            <li class="optimization__result">
+                <h3 class="optimization__result-number">
+                    -29%
+                </h3>
+
+                <p>
+                    Wardrobe — modular 6-panel build, 2 installers not 3
+                </p>
+            </li>
+
+            <li class="optimization__result">
+                <h3 class="optimization__result-number">
+                    -23%
+                </h3>
+
+                <p>
+                    Kitchen unit — marble splash-back instead of veneer near water
+                </p>
+            </li>
+
+        </ul>
+
+    </div>
+
+</section>
+
+<style>
+
+    .optimization {
+        background-color: #F4F3F0;
+        border-bottom: 0.05rem solid #888888;
+    }
+
+    .optimization .container {
+        width: 100%;
+        max-width: 140rem;
+        padding: 0 2rem;
+        margin: 0 auto;
+    }
+
+    .optimization__main {
+        display: grid;
+        grid-template-columns: 58% 42%;
+    }
+
+    .optimization__content {
+        padding: 10rem 10rem 10rem 0;
+    }
+
+    .optimization__eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        color: #58585A;
+        font-family: 'TT Firs Neue', sans-serif;
+        font-size: 1.6rem;
+        letter-spacing: -0.03rem;
+        text-transform: uppercase;
+        margin-bottom: 6rem;
+    }
+
+    .optimization__eyebrow::before {
+        content: "";
+        width: 2rem;
+        height: 0.1rem;
+        background-color: #888888;
+        flex-shrink: 0;
+    }
+
+    .optimization__eyebrow span {
+        color: #2E7C77;
+    }
+
+    .optimization__title {
+        max-width: 80rem;
+        color: #151516;
+        font-size: clamp(4.2rem, 4.4vw, 5.2rem);
+        margin-bottom: 4rem;
+    }
+
+    .optimization__text {
+        max-width: 90rem;
+    }
+
+    .optimization__text p {
+        color: #58585A;
+        font-size: 1.6rem;
+        line-height: 1.4;
+        margin-bottom: 2rem;
+    }
+
+    .optimization__text p:last-child {
+        margin-bottom: 0;
+    }
+
+    .optimization__stat {
+        border-left: 0.05rem solid #888;
+        padding: 17rem 0 10rem 8rem;
+    }
+
+    .optimization__number {
+        color: #151516;
+        font-family: 'TT Firs Neue', sans-serif;
+        font-size: clamp(10rem, 11vw, 12.8rem);
+        line-height: 1.1;
+        white-space: nowrap;
+    }
+
+    .optimization__number span {
+        color: #2E7C77;
+    }
+
+    .optimization__label {
+        color: #58585A;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.6rem;
+        line-height: 1.4;
+        text-transform: uppercase;
+        margin-bottom: 6rem;
+    }
+
+    .optimization__button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-family: Poppins, sans-serif;
+        font-size: 1.8rem;
+        letter-spacing: -0.03em;
+        padding: 1.3rem 2.4rem;
+
+        border: 0.1rem solid #888888;
+        background-color: transparent;
+        color: #151516;
+        text-decoration: none;
+        cursor: pointer;
+
+        transition: 0.3s ease;
+    }
+
+    .optimization__button:hover {
+        transform: translateY(-2px);
+    }
+
+    .optimization__results {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .optimization__results::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 100vw;
+        height: 0.05rem;
+        background-color: #888888;
+        transform: translateX(-50%);
+    }
+
+    .optimization__result {
+        display: flex;
+        flex-direction: column;
+        padding: 4rem;
+        gap: 1.2rem;
+        border-right: 0.05rem solid #888888;
+    }
+
+    .optimization__result:last-child {
+        border-right: none;
+    }
+
+    .optimization__result-number {
+        color: #2E7C77;
+    }
+
+    .optimization__result p {
+        color: #58585A;
+        font-size: 1.4rem;
+    }
+
+</style>
