@@ -1,0 +1,250 @@
+---
+
+---
+
+<section class="faq">
+
+    <div class="container">
+
+        <div class="faq__eyebrow">
+            <span>10</span>
+            Before you ask
+        </div>
+
+        <h2 class="faq__title">
+            The questions every procurement lead asks first
+        </h2>
+
+        <div class="faq__list">
+
+            <article class="faq__item is-active">
+
+                <div class="faq__question">
+                    <h4>
+                        What happens if a factory runs behind schedule?
+                    </h4>
+
+                    <span class="faq__icon">-</span>
+                </div>
+
+                <div class="faq__answer">
+                    <p>
+                        We monitor production against the agreed schedule and flag delays early, so corrective action can be taken before they affect the wider project timeline.
+                    </p>
+                </div>
+
+            </article>
+
+
+            <article class="faq__item">
+
+                <div class="faq__question">
+                    <h4>
+                        How do you guarantee material quality?
+                    </h4>
+
+                    <span class="faq__icon">+</span>
+                </div>
+
+                <div class="faq__answer">
+                    <p>
+                        Materials and finished pieces are checked against the approved specifications before production moves forward and before anything ships.
+                    </p>
+                </div>
+
+            </article>
+
+
+            <article class="faq__item">
+
+                <div class="faq__question">
+                    <h4>
+                        What if something arrives damaged?
+                    </h4>
+
+                    <span class="faq__icon">+</span>
+                </div>
+
+                <div class="faq__answer">
+                    <p>
+                        We coordinate the inspection, documentation and resolution process, giving you one point of contact rather than dealing with the factory directly.
+                    </p>
+                </div>
+
+            </article>
+
+
+            <article class="faq__item">
+
+                <div class="faq__question">
+                    <h4>
+                        We can't find the exact piece we need — what then?
+                    </h4>
+
+                    <span class="faq__icon">+</span>
+                </div>
+
+                <div class="faq__answer">
+                    <p>
+                        We can develop the piece to your requirements, work from an approved render or specification, and take it through production with the appropriate factory.
+                    </p>
+                </div>
+
+            </article>
+
+
+            <article class="faq__item">
+
+                <div class="faq__question">
+                    <h4>
+                        How is this different from hiring our own buyer in Indonesia?
+                    </h4>
+
+                    <span class="faq__icon">+</span>
+                </div>
+
+                <div class="faq__answer">
+                    <p>
+                        You get a wider procurement network, technical coordination, quality control, logistics and installation under one engagement rather than managing separate suppliers and processes yourself.
+                    </p>
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+<style>
+
+    .faq {
+        background-color: #111111;
+        padding: 10rem 0rem;
+    }
+
+    .faq .container {
+        width: 100%;
+        max-width: 140rem;
+        padding: 0 10rem;
+        margin: 0 auto;
+    }
+
+    .faq__eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-family: 'TT Firs Neue', sans-serif;
+        color: #E3E3E3;
+        font-size: 1.6rem;
+        letter-spacing: -0.03rem;
+        text-transform: uppercase;
+        margin-bottom: 6rem;
+    }
+
+    .faq__eyebrow::before {
+        content: "";
+        width: 2rem;
+        height: 0.1rem;
+        background-color: #E3E3E3;
+        flex-shrink: 0;
+    }
+
+    .faq__eyebrow span {
+        color: #2E7C77;
+    }
+
+    .faq__title {
+        max-width: 80rem;
+        margin-bottom: 6rem;
+        color: #fff;
+        font-size: clamp(4.2rem, 4.4vw, 5.2rem);
+    }
+
+    .faq__list {
+        width: 100%;
+    }
+
+    .faq__item {
+        border-top: 0.05rem solid #E3E3E3;
+        padding: 3rem 0 3rem;
+    }
+
+    .faq__item:last-child {
+        border-bottom: 0.05rem solid #E3E3E3;
+    }
+
+    .faq__question {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+    }
+
+    .faq__question h4 {
+        color: #fff;
+        font-family: 'Poppins', sans-serif;
+        font-size: 2rem;
+        font-weight: 400;
+        line-height: 1.2;
+        letter-spacing: -0.03em;
+    }
+
+    .faq__icon {
+        flex-shrink: 0;
+        color: #2E7C77;
+        font-family: 'Poppins', sans-serif;
+        font-size: 3rem;
+        line-height: 1;
+    }
+
+    .faq__answer {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.5s ease, opacity 0.35s ease;
+    }
+
+    .faq__item.is-active .faq__answer {
+        max-height: 20rem;
+        opacity: 1;
+    }
+
+    .faq__answer p {
+        max-width: 72rem;
+        margin: 0;
+        padding-top: 2rem;
+        color: #E3E3E3;
+        font-size: 1.5rem;
+        line-height: 1.45;
+    }
+
+</style>
+
+<script>
+    const faqItems = document.querySelectorAll('.faq__item');
+
+    faqItems.forEach((item) => {
+        const question = item.querySelector('.faq__question');
+        const icon = item.querySelector('.faq__icon');
+
+        if (!question || !icon) return;
+
+        question.addEventListener('click', () => {
+
+            faqItems.forEach((faqItem) => {
+                faqItem.classList.remove('is-active');
+
+                const faqIcon = faqItem.querySelector('.faq__icon');
+
+                if (faqIcon) {
+                    faqIcon.textContent = '+';
+                }
+            });
+
+            item.classList.add('is-active');
+            icon.textContent = '-';
+        });
+    });
+</script>
