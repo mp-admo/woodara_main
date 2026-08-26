@@ -1,5 +1,10 @@
 @import "./fonts.css";
 
+:root {
+    --color-accent: #4C9141;
+}
+
+
 html {
     font-size: 62.5%; /* 1rem ровно 10px вместо 16px */
     scroll-behavior: smooth;
