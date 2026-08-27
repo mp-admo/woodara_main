@@ -25,10 +25,31 @@
             <nav class="footer__nav">
 
                 <div class="footer__links">
-                    <a href="#">Projects</a>
-                    <a href="#">Why Woodara</a>
-                    <a href="#">Process</a>
-                    <a href="#">FAQ</a>
+
+                    <a href="#categories">
+                        Product categories
+                    </a>
+
+                    <a href="#projects">
+                        Projects
+                    </a>
+
+                    <a href="#scope">
+                        Scope
+                    </a>
+
+                    <a href="#process">
+                        Process
+                    </a>
+
+                    <a href="#contact">
+                        Contact
+                    </a>
+
+                    <a href="#">
+                        About the company
+                    </a>
+                    
                 </div>
 
                 <div class="footer__contacts">
@@ -86,9 +107,9 @@
 
     .footer__top {
         display: grid;
-        grid-template-columns: 65% 35%;
+        grid-template-columns: 60% 40%;
         gap: 0;
-        padding-bottom: 7rem;
+        padding-bottom: 8rem;
     }
 
     .footer__brand {
@@ -123,7 +144,7 @@
     .footer__nav {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 4rem;
+        gap: 6rem;
     }
 
     .footer__links,
@@ -134,7 +155,7 @@
     }
 
     .footer__nav a {
-        color: #E3E3E3;
+        color: #fff;
         font-family: 'Outfit', sans-serif;
         font-size: 2rem;
         line-height: 1.1;
@@ -165,6 +186,74 @@
 
     .footer__designer {
         text-align: right;
+    }
+
+    @media (max-width: 768px) {
+
+        .footer {
+            padding-top: 6rem;
+        }
+
+        .footer__top {
+            grid-template-columns: 1fr;
+            padding-bottom: 5rem;
+        }
+
+        .footer__brand {
+            margin-bottom: 5rem;
+        }
+
+        .footer .logo {
+            margin-bottom: 3rem;
+        }
+
+        .footer .logo img {
+            width: 16rem;
+        }
+
+        .footer__address {
+            gap: 0.8rem;
+        }
+
+        .footer__address p {
+            font-size: 1.4rem;
+            line-height: 1.1;
+        }
+
+        .footer__nav {
+            display: flex;
+            flex-direction: column;
+            gap: 5rem;
+        }
+
+        .footer__links,
+        .footer__contacts {
+            gap: 1.8rem;
+        }
+
+        .footer__nav a {
+            font-size: 1.6rem;
+        }
+
+        .footer__nav a:hover {
+            color: #E3E3E3;
+        }
+
+        .footer__bottom {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1.4rem;
+            padding: 2rem 0;
+        }
+
+        .footer__bottom p {
+            font-size: 1.4rem;
+        }
+
+        .footer__designer {
+            text-align: left;
+        }
+
     }
 
 </style>

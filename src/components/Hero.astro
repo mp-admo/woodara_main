@@ -37,9 +37,9 @@
 
                 <div class="hero__actions">
 
-                    <button type="button" class="hero__button">
+                    <a href="#contact" class="hero__button">
                         Get a project review
-                    </button>
+                    </a>
 
                     <a href="#projects" class="hero__button hero__button--secondary">
                         See completed projects
@@ -191,9 +191,91 @@
         color: #151516;
     }
 
-    
+    @media (max-width: 768px) {
+
+        .hero {
+            min-height: auto;
+            padding: 6rem 0;
+        }
+
+        .hero__content {
+            min-height: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero__main {
+            padding: 0;
+        }
+
+        .hero__eyebrow {
+            margin-bottom: 4rem;
+            gap: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .hero__title {
+            max-width: none;
+            margin-bottom: 3rem;
+            font-size: 4.2rem;
+        }
+
+        .hero__description {
+            margin-bottom: 0;
+            font-size: 1.4rem;
+        }
+
+        .hero__aside {
+            padding: 3rem 0 0;
+            margin-top: 4rem;
+            border-left: none;
+            border-top: 0.05rem solid #888888;
+        }
+
+        .hero__stat {
+            margin-bottom: 1.4rem;
+            font-size: 4.8rem;
+        }
+
+        .hero__stat-description {
+            max-width: none;
+            margin-bottom: 3rem;
+            font-size: 1.4rem;
+        }
+
+        .hero__actions {
+            width: 100%;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 1.4rem;
+        }
+
+        .hero__button {
+            width: 100%;
+        }
+
+        .hero__button:hover {
+            transform: none;
+        }
+
+    }
+
+    @media (max-width: 1024px) {
+
+        .hero__actions {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 1rem;
+        }
+
+        .hero__button {
+            width: 100%;
+            white-space: nowrap;
+        }
+
+    }
+
 
     
-
 
 </style>

@@ -51,7 +51,7 @@
                 </span>
 
                 <h4 class="audience__item-title">
-                    Furniture built to stay open, and<br >a warranty line that answers
+                    Furniture built to stay open, and a warranty line that answers
                 </h4>
 
                 <p class="audience__item-description">
@@ -67,7 +67,7 @@
                 </span>
 
                 <h4 class="audience__item-title">
-                    A production timeline you can put<br >in front of your own client
+                    A production timeline you can put in front of your own client
                 </h4>
 
                 <p class="audience__item-description">
@@ -212,6 +212,77 @@
         color: #58585A;
         font-size: 1.6rem;
         line-height: 1.4;
+    }
+
+    @media (max-width: 768px) {
+
+        .audience {
+            padding: 6rem 0;
+        }
+
+        .audience__header {
+            margin-bottom: 5rem;
+        }
+
+        .audience__eyebrow {
+            margin-bottom: 4rem;
+            font-size: 1.3rem;
+        }
+
+        .audience__header-content {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            align-items: stretch;
+        }
+
+        .audience__title {
+            max-width: 100%;
+            font-size: 3.2rem;
+            margin-bottom: 3rem;
+        }
+
+        .audience__description {
+            max-width: 100%;
+            font-size: 1.4rem;
+            margin: 0;
+        }
+
+        .audience__list {
+            grid-template-columns: 1fr;
+            gap: 1.4rem;
+        }
+
+        .audience__list::before,
+        .audience__list::after {
+            display: none;
+        }
+
+        .audience__item,
+        .audience__item:first-child,
+        .audience__item:last-child {
+            padding: 3rem 2.4rem;
+            border: 0.05rem solid #888888;
+        }
+
+        .audience__item-label {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            
+        }
+
+        .audience__item-title {
+            max-width: 100%;
+            margin-bottom: 2rem;
+            font-size: 2.2rem;
+            max-width: 32rem;
+        }
+
+        .audience__item-description {
+            max-width: 100%;
+            font-size: 1.4rem;
+        }
+
     }
 
 </style>

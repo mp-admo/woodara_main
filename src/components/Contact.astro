@@ -2,7 +2,7 @@
 
 ---
 
-<section class="contact">
+<section class="contact" id="contact">
 
     <div class="container">
 
@@ -375,6 +375,7 @@
         padding: 1.5rem 2.7rem;
         background-color: #fff;
         color: #111111;
+        border: none;
         font-family: 'Outfit', sans-serif;
         font-size: 1.8rem;
         letter-spacing: -0.03em;
@@ -384,6 +385,116 @@
 
     .contact__submit:hover {
         transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+
+        .contact {
+            padding: 6rem 0;
+        }
+
+        .contact__grid {
+            grid-template-columns: 1fr;
+        }
+
+        .contact__left {
+            padding-right: 0;
+        }
+
+        .contact__eyebrow {
+            margin-bottom: 4rem;
+            font-size: 1.3rem;
+        }
+
+        .contact__title {
+            max-width: 100%;
+            margin-bottom: 5rem;
+            font-size: 3.6rem;
+        }
+
+        .contact__person {
+            margin-top: 0;
+            margin-bottom: 5rem;
+            gap: 2rem;
+        }
+
+        .contact__person-image {
+            width: 9rem;
+            height: 9rem;
+        }
+
+        .contact__person-info {
+            gap: 0.6rem;
+        }
+
+        .contact__person-name {
+            font-size: 1.8rem;
+        }
+
+        .contact__person-role {
+            font-size: 1.4rem;
+        }
+
+        .contact__right {
+            padding: 0;
+        }
+
+        .contact__intro {
+            max-width: 100%;
+            margin-bottom: 5rem;
+            font-size: 1.4rem;
+        }
+
+        .contact__form {
+            max-width: 100%;
+        }
+
+        .contact__field {
+            margin-bottom: 3rem;
+        }
+
+        .contact__field label {
+            left: 1.6rem;
+            font-size: 1.6rem;
+        }
+
+        .contact__field input {
+            height: 5.6rem;
+            padding: 0 1.6rem;
+            font-size: 1.6rem;
+        }
+
+        .contact__optional {
+            right: 1.6rem;
+            font-size: 1.4rem;
+        }
+
+        .contact__channels {
+            margin-top: 1rem;
+        }
+
+        .contact__channels-title {
+            margin-bottom: 2rem;
+           
+        }
+
+        .contact__buttons {
+            gap: 1em;
+        }
+
+        .contact__channel {
+            flex: 1;
+        }
+
+        .contact__submit {
+            width: 100%;
+            margin-top: 2rem;
+        }
+
+        .contact__submit:hover {
+            transform: none;
+        }
+
     }
 
 </style>

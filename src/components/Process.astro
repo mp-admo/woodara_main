@@ -2,7 +2,7 @@
 
 ---
 
-<section class="process">
+<section class="process" id="process">
 
     <div class="container">
 
@@ -12,8 +12,7 @@
             <div class="process__left">
 
                 <h2 class="process__title">
-                    From render to final install,<br>
-                    in five stages
+                    From render to final install, in five stages
                 </h2>
 
 
@@ -67,7 +66,7 @@
                                 <div class="process__content-box">
 
                                     <p class="process__text">
-                                        Your approved designs are translated into detailed, production-ready technical specifications and drawings.
+                                        Your design is translated into production-ready drawings and material call-outs the factory can build from without guesswork.
                                     </p>
 
                                 </div>
@@ -97,7 +96,7 @@
                                 <div class="process__content-box">
 
                                     <p class="process__text">
-                                        Production is monitored through regular factory reporting, inspections and quality checks.
+                                        Our account managers and on-site runners work from the factory floor, with weekly reporting and interim inspections.
                                     </p>
 
                                 </div>
@@ -121,13 +120,13 @@
                             <div class="process__info">
 
                                 <h4 class="process__item-title">
-                                    Production under supervision
+                                    Logistics & customs
                                 </h4>
 
                                 <div class="process__content-box">
 
-                                    <p class="process__text">
-                                        Materials and finished pieces are checked against the approved specifications before anything moves to shipping.
+                                    <p class="process__text"> 
+                                        Freight, import licensing, certification and customs clearance handled end to end across Jakarta, Surabaya and Denpasar ports.
                                     </p>
 
                                 </div>
@@ -151,43 +150,13 @@
                             <div class="process__info">
 
                                 <h4 class="process__item-title">
-                                    Logistics & customs
-                                </h4>
-
-                                <div class="process__content-box">
-
-                                    <p class="process__text">
-                                        We coordinate freight, documentation, customs clearance and delivery through to the project site.
-                                    </p>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- 06 -->
-                    <article class="process__item">
-
-                        <div class="process__wrapper">
-
-                            <span class="process__number">
-                                06
-                            </span>
-
-                            <div class="process__info">
-
-                                <h4 class="process__item-title">
                                     Final install & handover
                                 </h4>
 
                                 <div class="process__content-box">
 
                                     <p class="process__text">
-                                        Our team manages the final installation, walkthrough and handover so the project is ready to use.
+                                        On-site installation, client walk-through and a standing warranty line for anything that needs attention after handover.
                                     </p>
 
                                 </div>
@@ -214,8 +183,7 @@
                 <div class="process__image">
 
                     <img
-                        src="/process_image_wdr.png"
-                        alt=""
+                        src="public/process_image_wdr.webp" alt=""
                     >
 
                 </div>
@@ -233,7 +201,7 @@
     .process {
         background-color: #F4F3F0;
         margin-top: 10rem;
-        padding-bottom: 8rem;
+        padding-bottom: 10rem;
         border-top: 0.05rem solid #888888;
     }
 
@@ -257,7 +225,7 @@
     }
 
     .process__title {
-        max-width: 70rem;
+        max-width: 60rem;
         margin-bottom:  6rem;
         color: #151516;
         font-size: clamp(4.2rem, 4.4vw, 5.2rem);
@@ -266,7 +234,7 @@
     .process__accordion {
         width: 100%;
         max-width: 76rem;
-        height: 58rem;
+        height: 49.5rem;
     }
 
     .process__item {
@@ -368,6 +336,78 @@
         display: block;
         width: 100%;
         height: auto;
+    }
+
+    @media (max-width: 768px) {
+
+        .process {
+            margin-top: 6rem;
+            padding-bottom: 6rem;
+        }
+
+        .process__grid {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .process__right {
+            order: 1;
+        }
+
+        .process__eyebrow {
+            height: auto;
+            padding: 5rem 0 0;
+            font-size: 1.3rem;
+        }
+
+        .process__image {
+            display: none;
+        }
+
+        .process__left {
+            order: 2;
+            padding: 4rem 0 0;
+            border-right: none;
+        }
+
+        .process__title {
+            max-width: 100%;
+            margin-bottom: 4rem;
+            font-size: 3.6rem;
+        }
+
+        .process__accordion {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .process__item {
+            padding: 2rem 0;
+        }
+
+        .process__item:first-child {
+            padding-top: 0;
+        }
+
+        .process__wrapper {
+            gap: 3rem;
+        }
+
+        .process__number {
+            width: 2rem;
+            font-size: 1.6rem;
+            margin-top: 0.1rem;
+        }
+
+        .process__item-title {
+            font-size: 2.2rem;
+        }
+
+        .process__text {
+            font-size: 1.4rem;
+            padding-top: 1.2rem;
+        }
+
     }
 
 </style>

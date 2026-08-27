@@ -20,35 +20,73 @@
                 Projects
             </a>
 
-            <a href="#about" class="header__menu-link">
-                Why Woodara
-            </a>
-
             <a href="#scope" class="header__menu-link">
                 Scope
-            </a>
-
-            <a href="#proof" class="header__menu-link">
-                Proof
             </a>
 
             <a href="#process" class="header__menu-link">
                 Process
             </a>
 
-            <a href="#faq" class="header__menu-link">
-                FAQ
+            <a href="#contact" class="header__menu-link">
+                Contact
+            </a>
+
+            <a href="#" class="header__menu-link">
+                About us
             </a>
 
         </div>
 
-        <button class="header__button" type="button">
+        <a href="#contact" class="header__button">
             Get a project review
+        </a>
+
+        <button class="burger-button" aria-label="Open menu">
+            <span></span>
+            <span></span>
+            <span></span>
         </button>
 
     </nav>
 
 </header>
+
+<div class="mobile-menu">
+
+    <nav class="mobile-menu__nav">
+
+        <a href="#categories" class="mobile-menu__link">
+            Product categories
+        </a>
+
+        <a href="#projects" class="mobile-menu__link">
+            Projects
+        </a>
+
+        <a href="#scope" class="mobile-menu__link">
+            Scope
+        </a>
+
+        <a href="#process" class="mobile-menu__link">
+            Process
+        </a>
+
+        <a href="#contact" class="mobile-menu__link">
+            Contact
+        </a>
+
+        <a href="#" class="mobile-menu__link">
+            About the company
+        </a>
+
+    </nav>
+
+     <a href="#contact" class="mobile-menu__button">
+        Get a project review
+    </a>
+
+</div>
 
 <style>
 
@@ -74,12 +112,12 @@
         justify-content: space-between;
     }
 
-    .header__logo {
+    .logo {
         display: block;
         flex-shrink: 0;
     }
 
-    .header__logo img {
+    .logo img {
         display: block;
         width: auto;
         height: 2rem;
@@ -102,7 +140,7 @@
     }
 
     .header__menu-link:hover {
-        color: #888;
+        color: var(--color-accent)
     }
 
     .header__button {
@@ -127,4 +165,176 @@
         color: #fff;
     }
 
+    .burger-button {
+        display: none;
+    }
+
+    .mobile-menu {
+        position: fixed;
+        top: 6.2rem;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 6.2rem);
+        background-color: #F4F3F0;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.3s ease;
+        z-index: 200;
+        gap: 8rem;
+    }
+
+    .mobile-menu.is-open {
+        opacity: 1;
+        visibility: visible;
+    }
+
+
+    .mobile-menu__close span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 2rem;
+        height: 0.1rem;
+        background-color: #151516;
+    }
+
+    .mobile-menu__close span:first-child {
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    .mobile-menu__close span:last-child {
+        transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    .mobile-menu__nav {
+        display: flex;
+        flex-direction: column;
+        gap: 2.6rem;
+        margin-top: 5rem;
+    }
+
+    .mobile-menu__link {
+        font-family: 'Outfit', sans-serif;
+        font-size: 2.4rem;
+        letter-spacing: -0.03em;
+        color: #151516;
+        text-decoration: none;
+    }
+
+    .mobile-menu__button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        font-family: "Outfit", sans-serif;
+        font-size: 1.8rem;
+        letter-spacing: -0.03em;
+        padding: 1.5rem 2.7rem;
+
+        border: 0.1rem solid #888888;
+        background-color: #151516;
+        color: #fff;
+        text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+
+        .header__menu,
+        .header__button {
+            display: none;
+        }
+
+        .header__nav {
+            justify-content: space-between;
+        }
+
+        .burger-button {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-end;
+
+            gap: 0.4rem;
+
+            width: 2.4rem;
+            height: 2.4rem;
+
+            padding: 0;
+            border: none;
+            background: transparent;
+
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .burger-button span {
+            display: block;
+
+            width: 2.4rem;
+            height: 0.2rem;
+
+            margin: 0;
+
+            background-color: #151516;
+
+            transition:
+                transform 0.3s ease,
+                opacity 0.3s ease;
+        }
+
+        .burger-button--active span:nth-child(1) {
+            transform: translateY(0.6rem) rotate(45deg);
+        }
+
+        .burger-button--active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .burger-button--active span:nth-child(3) {
+            transform: translateY(-0.6rem) rotate(-45deg);
+        }
+
+    }
+
 </style>
+
+<script>
+
+    const burgerBtn = document.querySelector('.burger-button');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const menuLinks = document.querySelectorAll('.mobile-menu__link, .mobile-menu__button');
+
+    if (burgerBtn && mobileMenu) {
+
+        burgerBtn.addEventListener('click', () => {
+
+            mobileMenu.classList.toggle('is-open');
+            burgerBtn.classList.toggle('burger-button--active');
+
+            if (mobileMenu.classList.contains('is-open')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+
+        });
+
+        menuLinks.forEach(link => {
+
+            link.addEventListener('click', () => {
+
+                mobileMenu.classList.remove('is-open');
+                burgerBtn.classList.remove('burger-button--active');
+                document.body.style.overflow = '';
+
+            });
+
+        });
+
+    }
+
+</script>
+

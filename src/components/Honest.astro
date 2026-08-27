@@ -30,8 +30,7 @@
                 </div>
 
                 <h2 class="honest__title">
-                    Aren't you just a middleman<br>
-                    with a markup?
+                    Aren't you just a middleman with a markup?
                 </h2>
 
                 <div class="honest__text">
@@ -42,7 +41,7 @@
 
                 </div>
 
-                <a href="#" class="honest__button">
+                <a href="#contact" class="honest__button">
                     Get a comparative quote for your project
                 </a>
 
@@ -128,7 +127,7 @@
     }
 
     .honest__title {
-        max-width: 80rem;
+        max-width: 60rem;
         color: #151516;
         font-size: clamp(4.2rem, 4.4vw, 5.2rem);
         margin-bottom: 4rem;
@@ -166,6 +165,73 @@
 
     .honest__button:hover {
         transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+
+        .honest__grid {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .honest__content {
+            order: 1;
+            border-left: none;
+            padding: 6rem 0 0;
+        }
+
+        .honest__eyebrow {
+            margin-bottom: 4rem;
+            font-size: 1.3rem;
+        }
+
+        .honest__title {
+            max-width: 100%;
+            font-size: 3.6rem;
+            margin-bottom: 3rem;
+        }
+
+        .honest__text {
+            max-width: 100%;
+            margin-bottom: 4rem;
+        }
+
+        .honest__text p {
+            font-size: 1.4rem;
+        }
+
+        .honest__button {
+            width: 100%;
+            transition: none;
+        }
+
+        .honest__button:hover {
+            transform: none;
+        }
+
+        .honest__stat {
+            order: 2;
+            border-top: 0.05rem solid #888888;
+            padding: 3.2rem 0 6rem;
+            margin-top: 3.6rem;
+        }
+
+        .honest__number {
+            font-size: 8rem;
+            line-height: 1;
+        }
+
+        .honest__label {
+            font-size: 1.3rem;
+        }
+
+    }
+
+    @media (max-width: 1024px) {
+
+        .honest__number {
+            font-size: 8rem;
+        }
     }
 
 </style>

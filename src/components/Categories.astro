@@ -2,7 +2,7 @@
 
 ---
 
-<section class="categories">
+<section class="categories" id="categories">
 
     <div class="container">
 
@@ -14,7 +14,7 @@
             </div>
 
             <h3 class="categories__title">
-                One supplier account. Nine categories already in production.
+                One supplier account.<br>Nine categories already in production.
             </h3>
 
             <p class="categories__description">
@@ -300,6 +300,58 @@
         user-select: none;
         -webkit-user-drag: none;
         pointer-events: none;
+    }
+
+    @media (max-width: 768px) {
+
+        .categories {
+            padding: 6rem 0;
+        }
+
+        .categories__header {
+            margin-bottom: 5rem;
+            
+        }
+
+        .categories__eyebrow {
+            margin-bottom: 4rem;
+            font-size: 1.3rem;
+        }
+
+        .categories__title {
+            max-width: 100%;
+            margin-bottom: 3rem;
+            font-size: 3.2rem;
+        }
+
+        .categories__description {
+            max-width: 100%;
+            font-size: 1.4rem;
+        }
+
+        .categories__list {
+            gap: 1.4rem;
+            margin-right: -2rem;
+            padding-right: 2rem;
+        }
+
+        .categories__item {
+            flex: 0 0 24rem;
+            height: 32rem;
+        }
+
+        .categories__item-title {
+            padding: 2.4rem 2.4rem 0;
+            margin-bottom: 1rem;
+            font-size: 2.2rem;
+        }
+
+        .categories__item-info {
+            padding: 0 2.4rem;
+            font-size: 1.4rem;
+            line-height: 1.;
+        }
+
     }
 
 </style>

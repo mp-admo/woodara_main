@@ -44,7 +44,7 @@
                     in Bali — without changing the design
                 </div>
 
-                <a href="#" class="optimization__button">
+                <a href="#contact" class="optimization__button">
                     Optimize my project's budget
                 </a>
 
@@ -90,7 +90,7 @@
                 </h3>
 
                 <p>
-                    Kitchen unit — marble splash-back instead of veneer near water
+                    Kitchen unit — marble splash-back instead of veneer
                 </p>
             </li>
 
@@ -260,5 +260,106 @@
         color: #58585A;
         font-size: 1.4rem;
     }
+
+    @media (max-width: 768px) {
+
+        .optimization__main {
+            grid-template-columns: 1fr;
+        }
+
+        .optimization__content {
+            padding: 6rem 0 0;
+        }
+
+        .optimization__eyebrow {
+            margin-bottom: 4rem;
+            font-size: 1.3rem;
+        }
+
+        .optimization__title {
+            max-width: 100%;
+            font-size: 3.6rem;
+            margin-bottom: 3rem;
+        }
+
+        .optimization__text {
+            max-width: 100%;
+        }
+
+        .optimization__text p {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .optimization__stat {
+            border-left: none;
+            border-top: 0.05rem solid #888888;
+            padding: 3.2rem 0 6rem;
+            margin-top: 3.6rem;
+        }
+
+        .optimization__number {
+            font-size: 8rem;
+            line-height: 1;
+        }
+
+        .optimization__label {
+            font-size: 1.3rem;
+            margin-bottom: 4rem;
+        }
+
+        .optimization__button {
+            width: 100%;
+            transition: none;
+        }
+
+        .optimization__button:hover {
+            transform: none;
+        }
+
+        .optimization__results {
+            grid-template-columns: repeat(2, 1fr);
+            margin: 0 -2rem;
+            border-top: 0.05rem solid #888888;
+            
+        }
+
+        .optimization__results::before {
+            display: none;
+        }
+
+        .optimization__result {
+            padding: 3rem 2rem;
+            gap: 0.6rem;
+            border-right: none;
+            border-bottom: 0.05rem solid #888888;
+        }
+
+        .optimization__result:nth-child(even) {
+            border-left: 0.05rem solid #888888;
+        }
+
+        .optimization__result:nth-last-child(-n+2) {
+            border-bottom: none;
+        }
+
+        .optimization__result-number {
+            font-size: 3.6rem;
+        }
+
+        .optimization__result p {
+            font-size: 1.2rem;
+            line-height: 1.3;
+        }
+
+    }
+
+    @media (max-width: 1024px) {
+
+        .optimization__number {
+            font-size: 8rem;
+        }
+    }
+
 
 </style>

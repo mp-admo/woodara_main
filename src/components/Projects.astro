@@ -2,7 +2,7 @@
 
 ---
 
-<section class="projects">
+<section class="projects" id="projects">
 
     <div class="container">
 
@@ -611,7 +611,7 @@
         <div class="projects__more">
 
             <button type="button" class="projects__button">
-                View all projects
+                More Projects
             </button>
 
         </div>
@@ -786,44 +786,178 @@
         transform: translateY(-2px);
     }
 
+    @media (max-width: 768px) {
+
+        .projects {
+            padding: 6rem 0;
+        }
+
+        .projects__header {
+            margin-bottom: 5rem;
+        }
+
+        .projects__eyebrow {
+            margin-bottom: 4rem;
+            font-size: 1.3rem;
+        }
+
+        .projects__header-content {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            align-items: stretch;
+        }
+
+        .projects__title {
+            max-width: 100%;
+            margin-bottom: 3rem;
+            font-size: 3.6rem;
+        }
+
+        .projects__description {
+            max-width: 100%;
+            font-size: 1.4rem;
+            margin-bottom: 0;
+        }
+
+        .projects__list {
+            grid-template-columns: 1fr;
+            gap: 5rem;
+        }
+
+        .projects__info {
+            margin-top: 2.4rem;
+            padding-top: 1.6rem;
+            gap: 1.6rem;
+        }
+
+        .projects__meta {
+            gap: 0.4rem;
+        }
+
+        .projects__meta span {
+            font-size: 1.8rem;
+            line-height: 1.1;
+        }
+
+        .projects__number {
+            font-size: 4.2rem;
+            margin-top: 0.4rem;
+        }
+
+        .projects__more {
+            margin-top: 5rem;
+        }
+
+        .projects__more::after {
+            display: none;
+        }
+
+        .projects__button {
+            width: 100%;
+        }
+
+        .projects__button:hover {
+            transform: none;
+        }
+
+    }
+
 </style>
 
 <script>
-    const projectsButton = document.querySelector('.projects__button');
-    const hiddenProjects = document.querySelectorAll('.projects__item.is-hidden');
 
-    projectsButton?.addEventListener('click', () => {
+const projectsButton = document.querySelector('.projects__button') as HTMLElement | null;
+const projects = document.querySelectorAll('.projects__item');
 
-        const isExpanded = projectsButton.classList.contains('is-expanded');
+if (projectsButton && projects.length) {
+  const desktopVisibleCount = 12;
+  const mobileVisibleCount = 6;
+  const batchSize = 6;
+  
+  let mobileVisible = mobileVisibleCount;
+  const isMobile = () => window.innerWidth <= 768;
 
-        if (!isExpanded) {
+  function updateProjects() {
+    // Безопасность: если кнопка не найдена, прерываем выполнение
+    if (!projectsButton) return; 
 
-            // Открываем проекты 13–24
-            hiddenProjects.forEach((project) => {
-                project.classList.remove('is-hidden');
-            });
+    if (isMobile()) {
+      projects.forEach((project, index) => {
+        project.classList.toggle('is-hidden', index >= mobileVisible);
+      });
 
-            projectsButton.classList.add('is-expanded');
-            projectsButton.textContent = 'Show less';
+      if (mobileVisible >= projects.length) {
+        projectsButton.textContent = 'Show less';
+        projectsButton.classList.add('is-expanded');
+      } else {
+        projectsButton.textContent = 'More Projects';
+        projectsButton.classList.remove('is-expanded');
+      }
+    } else {
+      projects.forEach((project, index) => {
+        project.classList.toggle('is-hidden', index >= desktopVisibleCount);
+      });
 
+      // Скрываем кнопку на десктопе, если проектов изначально меньше лимита
+      if (projects.length <= desktopVisibleCount) {
+        projectsButton.style.display = 'none';
+      } else {
+        projectsButton.style.display = 'block';
+        
+        // Управляем текстом кнопки в зависимости от её состояния на десктопе
+        if (projectsButton.classList.contains('is-expanded')) {
+          projectsButton.textContent = 'Show less';
         } else {
-
-            // Закрываем проекты 13–24
-            hiddenProjects.forEach((project) => {
-                project.classList.add('is-hidden');
-            });
-
-            projectsButton.classList.remove('is-expanded');
-            projectsButton.textContent = 'View all projects';
-
-            // Возвращаем пользователя к кнопке
-            setTimeout(() => {
-                projectsButton.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'center'
-                });
-            }, 0);
+          projectsButton.textContent = 'More Projects';
         }
+      }
+    }
+  }
 
-    });
+  projectsButton.addEventListener('click', () => {
+    if (isMobile()) {
+      if (mobileVisible < projects.length) {
+        mobileVisible += batchSize;
+        updateProjects();
+      } else {
+        mobileVisible = mobileVisibleCount;
+        updateProjects();
+        setTimeout(() => {
+          projectsButton.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 0);
+      }
+    } else {
+      const isExpanded = projectsButton.classList.contains('is-expanded');
+      
+      if (!isExpanded) {
+        projects.forEach((project, index) => {
+          if (index >= desktopVisibleCount) {
+            project.classList.remove('is-hidden');
+          }
+        });
+        projectsButton.classList.add('is-expanded');
+        projectsButton.textContent = 'Show less';
+      } else {
+        projects.forEach((project, index) => {
+          if (index >= desktopVisibleCount) {
+            project.classList.add('is-hidden');
+          }
+        });
+        projectsButton.classList.remove('is-expanded');
+        projectsButton.textContent = 'More Projects';
+        setTimeout(() => {
+          projectsButton.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 0);
+      }
+    }
+  });
+
+  // Добавляем слушатель изменения экрана для корректного переключения таблиц
+  window.addEventListener('resize', updateProjects);
+
+  // Инициализация при первой загрузке страницы
+  updateProjects();
+}
+
 </script>

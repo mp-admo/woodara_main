@@ -38,7 +38,7 @@
                     </li>
 
                     <li class="comparison__item">
-                        <p>Quality control depends on trusting the same factory<br />that's paid to ship</p>
+                        <p>Quality control depends on trusting the same factory that's paid to ship</p>
                     </li>
 
                     <li class="comparison__item">
@@ -114,7 +114,7 @@
 
     .comparison__eyebrow::before {
         content: "";
-        width: 2.5rem;
+        width: 2rem;
         height: 0.1rem;
         background-color: #E3E3E3;
         flex-shrink: 0;
@@ -223,6 +223,89 @@
 
     .comparison__item:last-child {
         border-bottom: none;
+    }
+
+    @media (max-width: 768px) {
+
+        .comparison {
+            padding: 6rem 0;
+        }
+
+        .comparison__eyebrow {
+            margin-bottom: 4rem;
+            font-size: 1.3rem;
+        }
+
+        .comparison__header-content {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            align-items: stretch;
+            margin-bottom: 5rem;
+        }
+
+        .comparison__title {
+            max-width: 100%;
+            font-size: 3.2rem;
+            margin-bottom: 3rem;
+        }
+
+        .comparison__description {
+            max-width: 100%;
+            font-size: 1.4rem;
+            margin: 0;
+        }
+
+        .comparison__table {
+            display: flex;
+            flex-direction: column;
+            gap: 1.4rem;
+            border: none;
+            padding: 0;
+        }
+
+        .comparison__column {
+            padding: 3rem 2.4rem;
+            border: 0.05rem solid #E3E3E3;
+        }
+
+        .comparison__column--direct,
+        .comparison__column--woodara {
+            padding-left: 2.4rem;
+            padding-right: 2.4rem;
+        }
+
+        .comparison__heading {
+            margin: 1rem 0 2rem;
+            padding-bottom: 1.2rem;
+        }
+
+        .comparison__item {
+            height: auto;
+            padding: 1.8rem 0 1.8rem 2.4rem;
+            align-items: flex-start;
+        }
+
+        .comparison__item::before {
+            left: 0;
+            top: 2rem;
+            font-size: 1.4rem;
+        }
+
+        .comparison__item p {
+            max-width: 100%;
+            font-size: 1.4rem;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+    }
+
+    @media (max-width: 1024px) {
+
+        .comparison__table {
+            padding: 0 5rem;
+        }
     }
 
 </style>
