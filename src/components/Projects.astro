@@ -78,8 +78,21 @@
 
                 <div class="projects__card">
 
-                    <div class="projects__image">
-                        <img src="/projects/photo_project_02_wdr.webp" alt="">
+                    <div class="projects__video">
+
+                        <img
+                            src="/projects/xo_image_projects.webp"
+                            alt=""
+                            class="projects__video-preview"
+                        >
+
+                        <video
+                            src="/projects/xo_video_project.mp4"
+                            muted
+                            playsinline
+                            preload="metadata"
+                        ></video>
+
                     </div>
 
                     <div class="projects__info">
@@ -87,7 +100,7 @@
                         <div class="projects__meta">
 
                             <span class="projects__name">
-                                Jungle Flower Villas | 10 villas
+                                XO apartments
                             </span>
 
                             <span class="projects__category">
@@ -1161,7 +1174,43 @@ if (projectsButton && projects.length) {
 
 <script>
 
-    const projectCards = document.querySelectorAll('.projects__card');
+    const projectCards = document.querySelectorAll(
+        '.projects__card'
+    ) as NodeListOf<HTMLElement>;
+
+    const isMobile = window.matchMedia(
+        '(max-width: 768px)'
+    );
+
+
+    const resetVideo = (
+        video: HTMLVideoElement,
+        preview: HTMLImageElement | null
+    ) => {
+
+        video.pause();
+        video.currentTime = 0;
+
+        if (preview) {
+            preview.style.opacity = '1';
+        }
+
+    };
+
+
+    const playVideo = (
+        video: HTMLVideoElement,
+        preview: HTMLImageElement | null
+    ) => {
+
+        if (preview) {
+            preview.style.opacity = '0';
+        }
+
+        video.play().catch(() => {});
+
+    };
+
 
     projectCards.forEach((card) => {
 
@@ -1175,54 +1224,44 @@ if (projectsButton && projects.length) {
 
         if (!video) return;
 
-        const resetVideo = () => {
-
-            video.pause();
-            video.currentTime = 0;
-
-            if (preview) {
-                preview.style.opacity = '1';
-            }
-
-        };
-
-        const playVideo = () => {
-
-            if (preview) {
-                preview.style.opacity = '0';
-            }
-
-            video.play().catch(() => {});
-
-        };
-
-        const isMobile = window.matchMedia(
-            '(max-width: 768px)'
-        );
-
         if (!isMobile.matches) {
 
-            card.addEventListener('mouseenter', playVideo);
+            card.addEventListener('mouseenter', () => {
+                playVideo(video, preview);
+            });
 
-            card.addEventListener('mouseleave', resetVideo);
+            card.addEventListener('mouseleave', () => {
+                resetVideo(video, preview);
+            });
 
         }
 
     });
 
 
-    const isMobile = window.matchMedia(
-        '(max-width: 768px)'
-    );
-
     if (isMobile.matches) {
+
+        const header = document.querySelector(
+            '.header'
+        ) as HTMLElement | null;
+
+        const headerHeight = header
+            ? header.getBoundingClientRect().height
+            : 0;
+
+        const triggerOffset = 50;
+
+
+        let activeVideo: HTMLVideoElement | null = null;
+        let activePreview: HTMLImageElement | null = null;
+
 
         const observer = new IntersectionObserver(
             (entries) => {
 
                 entries.forEach((entry) => {
 
-                    const card = entry.target;
+                    const card = entry.target as HTMLElement;
 
                     const video = card.querySelector(
                         '.projects__video video'
@@ -1234,22 +1273,37 @@ if (projectsButton && projects.length) {
 
                     if (!video) return;
 
+
                     if (entry.isIntersecting) {
 
-                        if (preview) {
-                            preview.style.opacity = '0';
+                        if (activeVideo && activeVideo !== video) {
+
+                            resetVideo(
+                                activeVideo,
+                                activePreview
+                            );
+
                         }
 
-                        video.play().catch(() => {});
 
-                    } else {
+                        activeVideo = video;
+                        activePreview = preview;
 
-                        video.pause();
-                        video.currentTime = 0;
 
-                        if (preview) {
-                            preview.style.opacity = '1';
-                        }
+                        playVideo(
+                            video,
+                            preview
+                        );
+
+                    } else if (activeVideo === video) {
+
+                        resetVideo(
+                            video,
+                            preview
+                        );
+
+                        activeVideo = null;
+                        activePreview = null;
 
                     }
 
@@ -1257,7 +1311,9 @@ if (projectsButton && projects.length) {
 
             },
             {
-                threshold: 0.6
+                root: null,
+                threshold: 0,
+                rootMargin: `-${headerHeight - triggerOffset}px 0px -${window.innerHeight - headerHeight - triggerOffset}px 0px`
             }
         );
 
