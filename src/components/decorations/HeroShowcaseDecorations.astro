@@ -5,10 +5,11 @@
 <div class="hero-showcase-decorations">
 
     <img
-        class="decoration decoration--sofa"
-        src="/decorative/decoration_sofa.webp"
+        class="decoration decoration--chair"
+        src="/decorative/decoration_chair.webp"
         alt=""
         draggable="false"
+        data-rotation="25"
     />
 
     <img
@@ -53,12 +54,12 @@
         transition: transform 0.2s ease-out;
     }
 
-    .decoration--sofa {
+    .decoration--chair {
         position: absolute;
-        width: 70rem;
+        width: 45rem;
         left: calc(50% + 3rem);
         top: 10vh;
-        
+        transform: rotate(25deg);
     }
 
     .decoration--pillow-left {
@@ -88,11 +89,21 @@
     
 
     @media (max-width: 1920px) {
+
+        .decoration--chair {
+            position: absolute;
+            width: 40rem;
+            left: calc(50% + 3rem);
+            top: 6vh;
+            transform: rotate(25deg);
+        }
+
         .decoration--pillow-right {
             width: 24rem;
             left: calc(50% + 58rem);
             top: 58vh;
         }
+
 
         .decoration--lamp {
             position: absolute;
@@ -102,7 +113,9 @@
         }
     }
 
-    @media (max-width: 1600px) {
+    @media (max-width: 1680px) {
+
+
         .decoration--pillow-right {
             width: 24rem;
             left: calc(50% + 58rem);
@@ -116,12 +129,41 @@
             top: 126vh;
         }
 
-        .decoration--sofa {
+        .decoration--chair {
             position: absolute;
-            width: 60rem;
-            left: calc(50% + 5rem);
-            top: 8vh;
+            width: 30rem;
+            left: calc(50% + 3rem);
+            top: 6vh;
+            transform: rotate(25deg);
         }
+
+        
+    }
+
+    @media (max-width: 1440px) {
+
+
+        .decoration--pillow-right {
+            width: 24rem;
+            left: calc(50% + 58rem);
+            top: 56vh;
+        }
+
+        .decoration--lamp {
+            position: absolute;
+            width: 110rem;
+            left: calc(50% + 8rem);
+            top: 126vh;
+        }
+
+        .decoration--chair {
+            position: absolute;
+            width: 30rem;
+            left: calc(50% + 3rem);
+            top: 6vh;
+            transform: rotate(25deg);
+        }
+
     }
 
     @media (max-width: 1024px) {
