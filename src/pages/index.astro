@@ -2,11 +2,12 @@
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
 import Showcase from "../components/Showcase.astro";
-import HeroShowcaseDecorations from "../components/decorations/HeroShowcaseDecorations.astro";
 import Categories from "../components/Categories.astro";
+import HeroShowcaseDecorations from "../components/decorations/HeroShowcaseDecorations.astro";
 import Projects from "../components/Projects.astro";
 import Audience from "../components/Audience.astro";
 import Scope from "../components/Scope.astro";
+import AudienceScopeDecorations from "../components/decorations/AudienceScopeDecorations.astro";
 import Comparison from "../components/Comparison.astro";
 import Volume from "../components/Volume.astro";
 import Honest from "../components/Honest.astro";
@@ -22,17 +23,20 @@ import Contact from "../components/Contact.astro";
 
         <Hero />
         <Showcase />
+        <Categories />
         <HeroShowcaseDecorations />
 
     </div>
-    
-    <Categories />
 
     <Projects />
 
-    <Audience />
+    <div class="audience-scope">
 
-    <Scope />
+        <Audience />
+        <Scope />
+        <AudienceScopeDecorations />
+
+    </div>
 
     <Comparison />
 
@@ -51,7 +55,14 @@ import Contact from "../components/Contact.astro";
 </Layout>
 
 <style>
+
     .hero-showcase {
         position: relative;
+        overflow: hidden;
     }
+
+    .audience-scope {
+        position: relative;
+    }
+
 </style>

@@ -2,21 +2,47 @@
 
 ---
 
-<div class="hero-showcase-decorations">
+<div class="audience-scope-decorations">
+
 
     <img
-        class="decoration decoration--sofa"
-        src="/decorative/decoration_sofa.webp"
-        alt=""
-        draggable="false"
-    />
-
-    <img
-        class="decoration decoration--pillow-left"
+        class="decoration decoration--pillow-up1"
         src="/decorative/decoration_pillow.webp"
         alt=""
         draggable="false"
-        data-rotation="30"
+        data-rotation="24"
+    />
+
+    <img
+        class="decoration decoration--pillow-up2"
+        src="/decorative/decoration_pillow.webp"
+        alt=""
+        draggable="false"
+        data-rotation="45"
+    />
+
+    <img
+        class="decoration decoration--pillow-up3"
+        src="/decorative/decoration_pillow.webp"
+        alt=""
+        draggable="false"
+        data-rotation="78"
+    />
+
+    <img
+        class="decoration decoration--pillow-up4"
+        src="/decorative/decoration_pillow.webp"
+        alt=""
+        draggable="false"
+        data-rotation="120"
+    />
+
+    <img
+        class="decoration decoration--pillow-up5"
+        src="/decorative/decoration_pillow.webp"
+        alt=""
+        draggable="false"
+        data-rotation="66"
     />
 
     <img
@@ -27,19 +53,11 @@
         data-rotation="66"
     />
 
-    <img
-        class="decoration--lamp"
-        src="/decorative/decoration_lamp.webp"
-        alt=""
-        draggable="false"
-    />
-
-
 </div>
 
 <style>
 
-    .hero-showcase-decorations {
+    .audience-scope-decorations {
         position: absolute;
         inset: 0;
         z-index: 10;
@@ -53,75 +71,70 @@
         transition: transform 0.2s ease-out;
     }
 
-    .decoration--sofa {
+    .decoration--pillow-up1 {
         position: absolute;
-        width: 70rem;
-        left: calc(50% + 3rem);
-        top: 10vh;
-        
+        width: 10rem;
+        left: calc(50% - 35rem);
+        top: -2vh;
+        transform: rotate(24deg);
     }
 
-    .decoration--pillow-left {
+    .decoration--pillow-up2 {
         position: absolute;
-        width: 32rem;
-        left: calc(50% - 90rem);
-        top: 75vh;
-        transform: rotate(30deg);
+        width: 15rem;
+        left: calc(50% - 15rem);
+        top: 0vh;
+        transform: rotate(45deg);
     }
+
+    .decoration--pillow-up3 {
+        position: absolute;
+        width: 12rem;
+        left: calc(50% + 10rem);
+        top: -3vh;
+        transform: rotate(78deg);
+    }
+
+    .decoration--pillow-up4 {
+        position: absolute;
+        width: 14rem;
+        left: calc(50% + 34rem);
+        top: -1vh;
+        transform: rotate(120deg);
+    }
+
+    .decoration--pillow-up5 {
+        position: absolute;
+        width: 10rem;
+        left: calc(50% + 58rem);
+        top: -3vh;
+        transform: rotate(66deg);
+    }
+    
 
     .decoration--pillow-right {
         position: absolute;
-        width: 24rem;
+        width: 32rem;
         left: calc(50% + 58rem);
-        top: 65vh;
+        top: 50vh;
         transform: rotate(66deg);
     }
 
-    .decoration--lamp {
-        position: absolute;
-        width: 110rem;
-        left: calc(50% + 26rem);
-        top: 115vh;
-    }
-
-            
-    
-
+ 
     @media (max-width: 1920px) {
         .decoration--pillow-right {
-            width: 24rem;
             left: calc(50% + 58rem);
             top: 58vh;
         }
 
-        .decoration--lamp {
-            position: absolute;
-            width: 110rem;
-            left: calc(50% + 22rem);
-            top: 115vh;
-        }
     }
 
     @media (max-width: 1600px) {
         .decoration--pillow-right {
-            width: 24rem;
             left: calc(50% + 58rem);
-            top: 56vh;
+            top: 62vh;
         }
 
-        .decoration--lamp {
-            position: absolute;
-            width: 110rem;
-            left: calc(50% + 8rem);
-            top: 126vh;
-        }
-
-        .decoration--sofa {
-            position: absolute;
-            width: 60rem;
-            left: calc(50% + 5rem);
-            top: 8vh;
-        }
     }
 
     @media (max-width: 1024px) {
