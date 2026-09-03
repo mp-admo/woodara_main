@@ -5,28 +5,29 @@
 <div class="hero-showcase-decorations">
 
     <img
+        class="decoration decoration--sofa"
+        src="/decorative/decoration_sofa.webp"
+        alt=""
+        draggable="false"
+        data-rotation="-5"
+    />
+
+    <img
         class="decoration decoration--chair"
         src="/decorative/decoration_chair.webp"
         alt=""
         draggable="false"
-        data-rotation="25"
+        data-rotation="-20"
     />
 
     <img
-        class="decoration decoration--pillow-left"
-        src="/decorative/decoration_pillow.webp"
+        class="decoration decoration--bulb"
+        src="/decorative/decoration_bulb.webp"
         alt=""
         draggable="false"
         data-rotation="30"
     />
 
-    <img
-        class="decoration decoration--pillow-right"
-        src="/decorative/decoration_pillow.webp"
-        alt=""
-        draggable="false"
-        data-rotation="66"
-    />
 
     <img
         class="decoration--lamp"
@@ -54,29 +55,30 @@
         transition: transform 0.2s ease-out;
     }
 
-    .decoration--chair {
+    .decoration--sofa {
         position: absolute;
-        width: 45rem;
-        left: calc(50% + 3rem);
-        top: 12rem;
-        transform: rotate(25deg);
+        width: 85rem;
+        left: calc(50% - 10rem);
+        top: 30rem;
+        transform: rotate(-5deg);
     }
 
-    .decoration--pillow-left {
+    .decoration--chair {
         position: absolute;
-        width: 32rem;
+        width: 40rem;
+        left: calc(50% + 60rem);
+        top: 88rem;
+        transform: rotate(-20deg);
+    }
+
+    .decoration--bulb {
+        position: absolute;
+        width: 26rem;
         left: calc(50% - 90rem);
         top: 100rem;
         transform: rotate(30deg);
     }
 
-    .decoration--pillow-right {
-        position: absolute;
-        width: 24rem;
-        left: calc(50% + 60rem);
-        top: 82rem;
-        transform: rotate(66deg);
-    }
 
     .decoration--lamp {
         position: absolute;
@@ -88,48 +90,50 @@
             
     @media (max-width: 1920px) {
 
+        .decoration--sofa {
+            width: 75rem;
+            left: calc(50% - 5rem);
+            top: 7rem;
+        }
+
         .decoration--chair {
-            position: absolute;
-            width: 30rem;
-            left: calc(50% + 3rem);
-            top: 6rem;
-            transform: rotate(25deg);
+            width: 40rem;
+            left: calc(50% + 60rem);
+            top: 56rem;
         }
 
-        .decoration--pillow-right {
-            width: 24rem;
-            left: calc(50% + 58rem);
-            top: 50rem;
-        }
-
-        .decoration--pillow-left {
-            width: 32rem;
+        .decoration--bulb {
+            width: 26rem;
             left: calc(50% - 90rem);
             top: 69rem;
         }
 
 
         .decoration--lamp {
-            position: absolute;
             width: 110rem;
             left: calc(50% + 22rem);
-            top: 130rem;
+            top: 115rem;
         }
     }
 
     @media (max-width: 1680px) {
 
-        .decoration--chair {
-            width: 32rem;
+        .decoration--sofa {
+            width: 75rem;
             left: calc(50% - 5rem);
-            top: 6rem;
+            top: 7rem;
         }
 
+        .decoration--chair {
+            width: 40rem;
+            left: calc(50% + 60rem);
+            top: 56rem;
+        }
 
-        .decoration--pillow-right {
-            width: 24rem;
-            left: calc(50% + 58rem);
-            top: 52rem;
+        .decoration--bulb {
+            width: 26rem;
+            left: calc(50% - 90rem);
+            top: 69rem;
         }
 
         .decoration--pillow-left {
@@ -140,7 +144,6 @@
 
 
         .decoration--lamp {
-            position: absolute;
             width: 110rem;
             left: calc(50% + 20rem);
             top: 116rem;
@@ -150,30 +153,26 @@
     }
 
     @media (max-width: 1440px) {
+        
+        .decoration--sofa {
+            width: 65rem;
+            left: calc(50% - 3rem);
+            top: 5rem;
+        }
 
         .decoration--chair {
-            position: absolute;
-            width: 28rem;
-            left: calc(50% - 6rem);
-            top: 6rem;
-            transform: rotate(25deg);
+            width: 30rem;
+            left: calc(50% + 60rem);
+            top: 45rem;
         }
 
-        .decoration--pillow-left {
-            width: 28rem;
-            left: calc(50% - 90rem);
-            top: 52rem;
-        }
-
-
-        .decoration--pillow-right {
-            width: 20rem;
-            left: calc(50% + 58rem);
-            top: 53rem;
+        .decoration--bulb {
+            width: 18rem;
+            left: calc(50% - 80rem);
+            top: 55rem;
         }
 
         .decoration--lamp {
-            position: absolute;
             width: 110rem;
             left: calc(50% + 12rem);
             top: 90rem;
