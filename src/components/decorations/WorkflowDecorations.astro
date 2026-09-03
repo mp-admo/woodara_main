@@ -1,0 +1,224 @@
+---
+
+---
+
+<div class="workflow-decorations">
+
+
+    <img
+        class="decoration decoration--pillow1"
+        src="/decorative/decoration_pillow.webp"
+        alt=""
+        draggable="false"
+        data-rotation="24"
+    />
+
+    <img
+        class="decoration decoration--pillow2"
+        src="/decorative/decoration_pillow.webp"
+        alt=""
+        draggable="false"
+        data-rotation="45"
+    />
+
+    <img
+        class="decoration decoration--pillow3"
+        src="/decorative/decoration_pillow.webp"
+        alt=""
+        draggable="false"
+        data-rotation="78"
+    />
+
+    <img
+        class="decoration decoration--pillow4"
+        src="/decorative/decoration_pillow.webp"
+        alt=""
+        draggable="false"
+        data-rotation="120"
+    />
+
+    <img
+        class="decoration decoration--pillow5"
+        src="/decorative/decoration_pillow.webp"
+        alt=""
+        draggable="false"
+        data-rotation="66"
+    />
+
+    <img
+        class="decoration decoration--bathtub"
+        src="/decorative/decoration_bathtub.webp"
+        alt=""
+        draggable="false"
+    />
+
+
+</div>
+
+<style>
+
+    .workflow-decorations {
+        position: absolute;
+        inset: 0;
+        z-index: 10;
+        pointer-events: none;
+    }
+
+    .decoration {
+        position: absolute;
+        pointer-events: auto;
+        will-change: transform;
+        transition: transform 0.2s ease-out;
+    }
+
+    .decoration--pillow1 {
+        position: absolute;
+        width: 20rem;
+        left: calc(50% - 35rem);
+        top: 50vh;
+        transform: rotate(24deg);
+    }
+
+    .decoration--pillow2 {
+        position: absolute;
+        width: 15rem;
+        left: calc(50% + 5rem);
+        top: 105vh;
+        transform: rotate(45deg);
+    }
+
+    .decoration--pillow3 {
+        position: absolute;
+        width: 20rem;
+        left: calc(50% + 28rem);
+        top: 100vh;
+        transform: rotate(78deg);
+    }
+
+    .decoration--pillow4 {
+        position: absolute;
+        width: 14rem;
+        left: calc(50% - 54rem);
+        top: 155vh;
+        transform: rotate(120deg);
+    }
+
+    .decoration--pillow5 {
+        position: absolute;
+        width: 30rem;
+        left: calc(50% + 58rem);
+        top: 170vh;
+        transform: rotate(66deg);
+    }
+
+    .decoration--bathtub {
+        position: absolute;
+        width: 90rem;
+        left: calc(50% + 30rem);
+        top: 28vh;
+    }
+    
+
+ 
+    @media (max-width: 1920px) {
+        
+        .decoration--pillow1 {
+            left: calc(50% - 35rem);
+            top: 60vh;
+        }
+
+        .decoration--pillow2 {
+            left: calc(50% + 5rem);
+            top: 124vh;
+        }
+
+         .decoration--pillow3 {
+            left: calc(50% + 28rem);
+            top: 120vh;
+        }
+
+        .decoration--pillow4 {
+            left: calc(50% - 54rem);
+            top: 185vh;
+        }
+
+        .decoration--pillow5 {
+            left: calc(50% + 58rem);
+            top: 200vh;
+        }
+    
+
+    }
+
+    @media (max-width: 1600px) {
+
+        .decoration--pillow1 {
+            left: calc(50% - 35rem);
+            top: 75vh;
+        }
+
+        .decoration--pillow2 {
+            left: calc(50% + 5rem);
+            top: 150vh;
+        }
+
+         .decoration--pillow3 {
+            left: calc(50% + 28rem);
+            top: 145vh;
+        }
+
+        .decoration--pillow4 {
+            left: calc(50% - 54rem);
+            top: 220vh;
+        }
+
+        .decoration--pillow5 {
+            left: calc(50% + 58rem);
+            top: 240vh;
+        }
+   
+
+    }
+
+    @media (max-width: 1024px) {
+
+        .decoration {
+            display: none;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .decoration {
+            display: none;
+        }
+    }
+
+</style>
+
+<script>
+    const decorations = document.querySelectorAll<HTMLElement>('.decoration');
+
+    decorations.forEach((decoration) => {
+        const rotation = decoration.dataset.rotation || '0';
+
+        decoration.addEventListener('mousemove', (event) => {
+            const rect = decoration.getBoundingClientRect();
+
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            const moveX = ((x - centerX) / centerX) * -10;
+            const moveY = ((y - centerY) / centerY) * -10;
+
+            decoration.style.transform =
+                `translate(${moveX}px, ${moveY}px) rotate(${rotation}deg)`;
+        });
+
+        decoration.addEventListener('mouseleave', () => {
+            decoration.style.transform = `rotate(${rotation}deg)`;
+        });
+    });
+</script>
