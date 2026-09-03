@@ -145,23 +145,42 @@
     decorations.forEach((decoration) => {
         const rotation = decoration.dataset.rotation || '0';
 
-        decoration.addEventListener('mousemove', (event) => {
-            const rect = decoration.getBoundingClientRect();
+        let mouseX = 0;
+        let mouseY = 0;
+        let animationFrame = 0;
 
-            const x = event.clientX - rect.left;
-            const y = event.clientY - rect.top;
+        const updatePosition = () => {
+            const rect = decoration.getBoundingClientRect();
 
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
 
-            const moveX = ((x - centerX) / centerX) * -10;
-            const moveY = ((y - centerY) / centerY) * -10;
+            const moveX = ((mouseX - centerX) / centerX) * -10;
+            const moveY = ((mouseY - centerY) / centerY) * -10;
 
             decoration.style.transform =
                 `translate(${moveX}px, ${moveY}px) rotate(${rotation}deg)`;
+
+            animationFrame = 0;
+        };
+
+        decoration.addEventListener('mousemove', (event) => {
+            const rect = decoration.getBoundingClientRect();
+
+            mouseX = event.clientX - rect.left;
+            mouseY = event.clientY - rect.top;
+
+            if (!animationFrame) {
+                animationFrame = requestAnimationFrame(updatePosition);
+            }
         });
 
         decoration.addEventListener('mouseleave', () => {
+            if (animationFrame) {
+                cancelAnimationFrame(animationFrame);
+                animationFrame = 0;
+            }
+
             decoration.style.transform = `rotate(${rotation}deg)`;
         });
     });
