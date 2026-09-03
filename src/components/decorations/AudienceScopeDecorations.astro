@@ -6,51 +6,51 @@
 
 
     <img
-        class="decoration decoration--pillow-up1"
-        src="/decorative/decoration_pillow.webp"
+        class="decoration decoration--armchair_01"
+        src="/decorative/decoration_armchair_01.webp"
         alt=""
         draggable="false"
         data-rotation="24"
     />
 
     <img
-        class="decoration decoration--pillow-up2"
-        src="/decorative/decoration_pillow.webp"
+        class="decoration decoration--chair_02"
+        src="/decorative/decoration_chair_02.webp"
+        alt=""
+        draggable="false"
+        data-rotation="20"
+    />
+
+    <img
+        class="decoration decoration--bedside"
+        src="/decorative/decoration_bedside.webp"
+        alt=""
+        draggable="false"
+        data-rotation="5"
+    />
+
+    <img
+        class="decoration decoration--armchair_02"
+        src="/decorative/decoration_armchair_02.webp"
+        alt=""
+        draggable="false"
+        data-rotation="-10"
+    />
+
+    <img
+        class="decoration decoration--sofa_02"
+        src="/decorative/decoration_sofa_02.webp"
+        alt=""
+        draggable="false"
+        data-rotation="23"
+    />
+
+    <img
+        class="decoration decoration--table"
+        src="/decorative/decoration_table.webp"
         alt=""
         draggable="false"
         data-rotation="45"
-    />
-
-    <img
-        class="decoration decoration--pillow-up3"
-        src="/decorative/decoration_pillow.webp"
-        alt=""
-        draggable="false"
-        data-rotation="78"
-    />
-
-    <img
-        class="decoration decoration--pillow-up4"
-        src="/decorative/decoration_pillow.webp"
-        alt=""
-        draggable="false"
-        data-rotation="120"
-    />
-
-    <img
-        class="decoration decoration--pillow-up5"
-        src="/decorative/decoration_pillow.webp"
-        alt=""
-        draggable="false"
-        data-rotation="66"
-    />
-
-    <img
-        class="decoration decoration--pillow-right"
-        src="/decorative/decoration_pillow.webp"
-        alt=""
-        draggable="false"
-        data-rotation="66"
     />
 
 </div>
@@ -71,68 +71,62 @@
         transition: transform 0.2s ease-out;
     }
 
-    .decoration--pillow-up1 {
+    .decoration--armchair_01 {
         position: absolute;
-        width: 10rem;
-        left: calc(50% - 35rem);
-        top: -2vh;
+        width: 18rem;
+        left: calc(50% - 40rem);
+        top: -5rem;
         transform: rotate(24deg);
     }
 
-    .decoration--pillow-up2 {
+    .decoration--chair_02 {
         position: absolute;
-        width: 15rem;
-        left: calc(50% - 15rem);
-        top: 0vh;
-        transform: rotate(45deg);
+        width: 18rem;
+        left: calc(50% - 16rem);
+        top: -8rem;
+        transform: rotate(20deg);
     }
 
-    .decoration--pillow-up3 {
-        position: absolute;
-        width: 12rem;
-        left: calc(50% + 10rem);
-        top: -3vh;
-        transform: rotate(78deg);
-    }
-
-    .decoration--pillow-up4 {
+    .decoration--bedside {
         position: absolute;
         width: 14rem;
-        left: calc(50% + 34rem);
-        top: -1vh;
-        transform: rotate(120deg);
+        left: calc(50% + 8rem);
+        top: -4rem;
+        transform: rotate(5deg);
     }
 
-    .decoration--pillow-up5 {
+    .decoration--armchair_02 {
         position: absolute;
-        width: 10rem;
-        left: calc(50% + 58rem);
-        top: -3vh;
-        transform: rotate(66deg);
+        width: 18rem;
+        left: calc(50% + 30rem);
+        top: -8rem;
+        transform: rotate(-10deg);
+    }
+
+    .decoration--sofa_02 {
+        position: absolute;
+        width: 14rem;
+        left: calc(50% + 55rem);
+        top: -4rem;
+        transform: rotate(23deg);
     }
     
 
-    .decoration--pillow-right {
+    .decoration--table {
         position: absolute;
-        width: 32rem;
-        left: calc(50% + 58rem);
-        top: 50vh;
-        transform: rotate(66deg);
+        width: 40rem;
+        left: calc(50% + 50rem);
+        top: 60rem;
+        transform: rotate(45deg);
     }
 
- 
-    @media (max-width: 1920px) {
-        .decoration--pillow-right {
-            left: calc(50% + 58rem);
-            top: 58vh;
-        }
 
-    }
+    @media (max-width: 1440px) {
 
-    @media (max-width: 1600px) {
-        .decoration--pillow-right {
-            left: calc(50% + 58rem);
-            top: 62vh;
+        .decoration--table {
+            width: 30rem;
+            left: calc(50% + 50rem);
+            top: 65rem;
         }
 
     }
