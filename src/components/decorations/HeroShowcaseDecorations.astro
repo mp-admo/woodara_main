@@ -1,0 +1,138 @@
+---
+
+---
+
+<div class="hero-showcase-decorations">
+
+    <img
+        class="decoration decoration--sofa"
+        src="/decorative/decoration_sofa.webp"
+        alt=""
+        draggable="false"
+    />
+
+    <img
+        class="decoration decoration--pillow-left"
+        src="/decorative/decoration_pillow.webp"
+        alt=""
+        draggable="false"
+        data-rotation="30"
+    />
+
+    <img
+        class="decoration decoration--pillow-right"
+        src="/decorative/decoration_pillow.webp"
+        alt=""
+        draggable="false"
+        data-rotation="66"
+    />
+
+</div>
+
+<style>
+
+    .hero-showcase-decorations {
+        position: absolute;
+        inset: 0;
+        z-index: 10;
+        pointer-events: none;
+    }
+
+    .decoration {
+        position: absolute;
+        pointer-events: auto;
+        will-change: transform;
+        transition: transform 0.2s ease-out;
+    }
+
+    .decoration--sofa {
+        position: absolute;
+        width: 70rem;
+        left: calc(50% + 3rem);
+        top: 10vh;
+        
+    }
+
+    .decoration--pillow-left {
+        position: absolute;
+        width: 32rem;
+        left: calc(50% - 90rem);
+        top: 75vh;
+        transform: rotate(30deg);
+    }
+
+    .decoration--pillow-right {
+        position: absolute;
+        width: 24rem;
+        left: calc(50% + 58rem);
+        top: 65vh;
+        transform: rotate(66deg);
+    }
+            
+    
+
+    @media (max-width: 1920px) {
+        .decoration--pillow-right {
+            width: 24rem;
+            left: calc(50% + 58rem);
+            top: 58vh;
+        }
+    }
+
+    @media (max-width: 1600px) {
+        .decoration--pillow-right {
+            width: 24rem;
+            left: calc(50% + 58rem);
+            top: 56vh;
+        }
+
+        .decoration--sofa {
+            position: absolute;
+            width: 60rem;
+            left: calc(50% + 5rem);
+            top: 8vh;
+        }
+    }
+
+    @media (max-width: 1024px) {
+
+        .decoration {
+            display: none;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .decoration {
+            display: none;
+        }
+    }
+
+</style>
+
+<script>
+    const decorations = document.querySelectorAll<HTMLElement>('.decoration');
+
+    decorations.forEach((decoration) => {
+        const rotation = decoration.dataset.rotation || '0';
+
+        decoration.addEventListener('mousemove', (event) => {
+            const rect = decoration.getBoundingClientRect();
+
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            const moveX = ((x - centerX) / centerX) * -15;
+            const moveY = ((y - centerY) / centerY) * -15;
+
+            decoration.style.transform =
+                `translate(${moveX}px, ${moveY}px) rotate(${rotation}deg)`;
+        });
+
+        decoration.addEventListener('mouseleave', () => {
+            decoration.style.transform = `rotate(${rotation}deg)`;
+        });
+    });
+</script>

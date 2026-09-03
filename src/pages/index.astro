@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
 import Showcase from "../components/Showcase.astro";
+import HeroShowcaseDecorations from "../components/decorations/HeroShowcaseDecorations.astro";
 import Categories from "../components/Categories.astro";
 import Projects from "../components/Projects.astro";
 import Audience from "../components/Audience.astro";
@@ -17,9 +18,13 @@ import Contact from "../components/Contact.astro";
 
 <Layout>
 
-    <Hero />
+    <div class="hero-showcase">
 
-    <Showcase />
+        <Hero />
+        <Showcase />
+        <HeroShowcaseDecorations />
+
+    </div>
     
     <Categories />
 
@@ -44,3 +49,9 @@ import Contact from "../components/Contact.astro";
     <Contact />
 	
 </Layout>
+
+<style>
+    .hero-showcase {
+        position: relative;
+    }
+</style>
