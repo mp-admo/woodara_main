@@ -6,6 +6,13 @@
 
     <div class="container">
 
+        <img
+            class="faq__chandelier"
+            src="/decorative/decoration_edison_chandelier.webp"
+            alt=""
+            draggable="false"
+        />
+
         <div class="faq__eyebrow">
             <span>10</span>
             Before you ask
@@ -123,6 +130,8 @@
         background-color: #111111;
         padding: 10rem 0rem;
         border-bottom: 0.05rem solid #E3E3E3;
+        position: relative;
+        overflow: hidden;
     }
 
     .faq .container {
@@ -221,6 +230,15 @@
         line-height: 1.45;
     }
 
+    .faq__chandelier {
+        position: absolute;
+        width: 70rem;
+        left: calc(50% + 3rem);
+        top: -6rem;
+        z-index: 10;
+        pointer-events: none;
+    }
+
     @media (max-width: 768px) {
 
         .faq {
@@ -257,6 +275,10 @@
             padding-top: 1.2rem;
             font-size: 1.4rem;
             line-height: 1.4;
+        }
+
+        .faq__chandelier {
+            display: none;
         }
 
     }
