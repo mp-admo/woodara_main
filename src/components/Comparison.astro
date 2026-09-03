@@ -6,6 +6,13 @@
 
     <div class="container">
 
+        <img
+            class="comparison__chandelier"
+            src="/decorative/decoration_chandelier.webp"
+            alt=""
+            draggable="false"
+        />
+
         <div class="comparison__eyebrow">
             <span>05</span>
             Direct vs. Woodara
@@ -91,7 +98,10 @@
     .comparison {
         background-color: #111111;
         padding: 10rem 0;
+        position: relative;
+        overflow: hidden;
     }
+    
 
     .comparison .container {
         width: 100%;
@@ -223,6 +233,15 @@
 
     .comparison__item:last-child {
         border-bottom: none;
+    }
+
+    .comparison__chandelier {
+        position: absolute;
+        width: 65rem;
+        left: calc(50% + 3rem);
+        top: -10rem;
+        z-index: 10;
+        pointer-events: none;
     }
 
     @media (max-width: 1024px) {
