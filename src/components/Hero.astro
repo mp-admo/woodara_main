@@ -11,8 +11,8 @@
             <div class="hero__main">
 
                 <div class="hero__eyebrow">
-                    <span>450+</span>
-                    Verified factories · Indonesia & China
+                    The delay. The bad batch. The warranty claim nobody answers.
+                    <span>Not your problem to manage.</span>
                 </div>
 
                 <h1 class="hero__title">
@@ -89,8 +89,8 @@
 
     .hero__eyebrow {
         display: flex;
-        align-items: center;
-        gap: 1rem;
+        flex-direction: column;
+        gap: 0.6rem;
         font-family: 'TT Firs Neue', sans-serif;
         color: #58585A;
         font-size: 1.6rem;
@@ -99,13 +99,6 @@
         margin-bottom: 6rem;
     }
 
-    .hero__eyebrow::before {
-        content: "";
-        width: 2rem;
-        height: 0.1rem;
-        background-color: #888888;
-        flex-shrink: 0;
-    }
 
     .hero__eyebrow span {
         color: var(--color-accent);
@@ -247,6 +240,7 @@
         }
 
         .hero__eyebrow {
+            max-width: 36rem;
             margin-bottom: 4rem;
             gap: 1rem;
             font-size: 1.3rem;
