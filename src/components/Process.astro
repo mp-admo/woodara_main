@@ -183,10 +183,34 @@
                 <div class="process__image">
 
                     <img
-                        src="/process_image_wdr.webp" alt=""
+                        src="/process_project_image_wdr.webp"
+                        alt=""
+                        class="process__image-base"
                     >
 
-                </div>
+                    <div class="process__image-overlay">
+                        <img
+                            src="/process_render_image_wdr.webp"
+                            alt=""
+                            class="process__image-overlay-img"
+                        >
+                    </div>
+
+                    <input
+                        type="range"
+                        min="0"
+                        max="100"
+                        value="50"
+                        class="process__image-range"
+                        aria-label="Process slider"
+                    >
+
+                    <div class="process__image-handle">
+                        <span></span>
+                    </div>
+                    
+                
+                </div>   
 
             </div>
 
@@ -328,6 +352,7 @@
     }
 
     .process__image {
+        position: relative;
         width: calc(100% + 2rem);
         height: 48rem;
         margin-top: auto;
@@ -339,6 +364,69 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+        object-position: 60% center;
+    }
+
+    .process__image-overlay {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        clip-path: inset(0 50% 0 0);
+    }
+
+    .process__image-overlay-img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .process__image-range {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        opacity: 0;
+        cursor: ew-resize;
+        z-index: 3;
+    }
+    
+    .process__image-handle {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 0.2rem;
+        background: #F4F3F0;
+        z-index: 10;
+        cursor: ew-resize;
+    }
+
+    .process__image-handle::before,
+    .process__image-handle::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0;
+        height: 0;
+        pointer-events: none;
+    }
+
+    .process__image-handle::before {
+        left: -1rem;
+        border-top: 0.6rem solid transparent;
+        border-bottom: 0.6rem solid transparent;
+        border-right: 0.7rem solid #F4F3F0;
+    }
+
+    .process__image-handle::after {
+        right: -1rem;
+        border-top: 0.6rem solid transparent;
+        border-bottom: 0.6rem solid transparent;
+        border-left: 0.7rem solid #F4F3F0;
     }
 
     @media (max-width: 768px) {
@@ -424,6 +512,7 @@
 
     processItems.forEach(item => {
         item.addEventListener('click', () => {
+
             processItems.forEach(otherItem => {
                 otherItem.classList.remove('is-active');
             });
@@ -431,4 +520,43 @@
             item.classList.add('is-active');
         });
     });
+
+    const processImage = document.querySelector('.process__image');
+
+    if (processImage) {
+
+        const range = processImage.querySelector(
+            '.process__image-range'
+        );
+
+        const overlay = processImage.querySelector(
+            '.process__image-overlay'
+        );
+
+        const handle = processImage.querySelector(
+            '.process__image-handle'
+        );
+
+        if (
+            range instanceof HTMLInputElement &&
+            overlay instanceof HTMLElement &&
+            handle instanceof HTMLElement
+        ) {
+
+            const updateSlider = () => {
+
+                const value = Number(range.value);
+
+                overlay.style.clipPath =
+                    `inset(0 ${100 - value}% 0 0)`;
+
+                handle.style.left = `${value}%`;
+
+            };
+
+            range.addEventListener('input', updateSlider);
+
+            updateSlider();
+        }
+    }
 </script>
