@@ -113,7 +113,7 @@
                                 Restaurant
                             </option>
 
-                            <option value="restaurant">
+                            <option value="other">
                                 Other
                             </option>
                         </select>
@@ -710,13 +710,11 @@
         });
     });
 
-
     phoneInput.addEventListener('input', () => {
         phoneInput.value = phoneInput.value.replace(/\D/g, '');
     });
 
-
-    contactForm.addEventListener('submit', (event) => {
+    contactForm.addEventListener('submit', async (event) => {
         event.preventDefault();
 
         contactForm.classList.add('is-submitted');
@@ -725,6 +723,61 @@
             return;
         }
 
-        // Здесь позже подключим отправку в Make.com
+        const submitButton = contactForm.querySelector('.contact__submit') as HTMLButtonElement;
+        if (submitButton) {
+            submitButton.disabled = true;
+        }
+
+        // Gather standard form fields (name, company, business-type, phone, telegram)
+        const formData = new FormData(contactForm);
+        const data: Record<string, any> = Object.fromEntries(formData.entries());
+
+        // Find active communication channel
+        const activeChannelBtn = document.querySelector('.contact__channel.is-active');
+        const selectedChannel = activeChannelBtn ? activeChannelBtn.getAttribute('data-channel') : 'Call';
+        data['communicationMethod'] = selectedChannel;
+
+        // Analytics and page metadata matching ClickUp requirements
+        data['page'] = window.location.href;
+        data['cta'] = 'Contact Form';
+
+        // Parse URL parameters for UTM tracking variables
+        const urlParams = new URLSearchParams(window.location.search);
+        data['utm_source'] = urlParams.get('utm_source') || '';
+        data['utm_campaign'] = urlParams.get('utm_campaign') || '';
+        data['utm_medium'] = urlParams.get('utm_medium') || '';
+        data['utm_content'] = urlParams.get('utm_content') || '';
+
+        try {
+            
+            const response = await fetch('https://hook.eu2.make.com/4cslxzn9dhuea8i7yphpxh1iabeorni8', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+
+            if (response.ok) {
+                alert('Success! Thank you.');
+                contactForm.reset();
+                contactForm.classList.remove('is-submitted');
+                
+                // Reset communication channels to default layout
+                channelButtons.forEach((item) => item.classList.remove('is-active'));
+                if (channelButtons[0]) channelButtons[0].classList.add('is-active');
+                telegramField.hidden = true;
+                telegramInput.required = false;
+            } else {
+                alert('Server error. Please try again.');
+            }
+        } catch (error) {
+            console.error('Network submission error:', error);
+            alert('Connection error.');
+        } finally {
+            if (submitButton) {
+                submitButton.disabled = false;
+            }
+        }
     });
 </script>
