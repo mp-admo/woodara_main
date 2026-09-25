@@ -15,8 +15,8 @@
                 </a>
 
                 <div class="footer__address">
-                    <p>PT Woodara Projects Supplier</p>
-                    <p>Jalan Mertanadi No. 31, Kuta Utara, Badung, Bali 80363</p>
+                    <p>PT Woodara Projects Supplier <br> Jalan Mertanadi No. 31, Lingkungan Taman Merthanadi, </p>
+                    <p>Desa/Kelurahan <br> Kerobokan Kelod, Kec. Kuta Utara, Kab. Badung, Provinsi Bali, 80363 </p>
                 </div>
 
             </div>
@@ -53,8 +53,13 @@
                 </div>
 
                 <div class="footer__contacts">
-                    <a href="tel:+6282145208372">
+
+                    <a href="tel:+6282145208372" class="footer__phone">
                         +62 821 4520 8372
+                    </a>
+
+                    <a href="tel:+6282145208372" class="footer__phone">
+                        +62 851 9028 2209
                     </a>
 
                     <a href="mailto:woodara.shop@gmail.com">
@@ -81,13 +86,27 @@
 
         <div class="footer__bottom">
 
-            <p class="footer__copyright">
-                © 2026 Woodara. All rights reserved
-            </p>
+            <div class="footer__bottom-left">
+                <p class="footer__copyright">
+                    © 2026 Woodara. All rights reserved
+                </p>
 
-            <p class="footer__designer">
-                Designed by Dojotal
-            </p>
+                <a
+                    href="/privacy-policy"
+                    class="footer__privacy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Privacy Policy
+                </a>
+                
+            </div>
+
+            <div class="footer__bottom-right">
+                <p class="footer__designer">
+                    Designed by Dojotal
+                </p>
+            </div>
 
         </div>
 
@@ -180,12 +199,48 @@
         border-top: 0.05rem solid #888888;
     }
 
+    .footer__bottom-left {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 3rem;
+    }
+
+    .footer__bottom-right {
+        display: flex;
+        align-items: center;
+    }
+
     .footer__bottom p {
-        font-family: 'Outfit';
+        margin: 0;
+        padding: 0;
+        font-family: 'Outfit', sans-serif;
         letter-spacing: -0.03em;
         color: #E3E3E3;
         font-size: 1.8rem;
         line-height: 1.1;
+        text-decoration: none;
+    }
+
+    .footer__bottom a {
+        margin: 0;
+        padding: 0;
+        font-family: 'Outfit', sans-serif;
+        letter-spacing: -0.03em;
+        color: #E3E3E3;
+        font-size: 1.8rem;
+        line-height: 1.1;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .footer__privacy {
+        color: #E3E3E3;
+        text-decoration: none;
+    }
+
+    .footer__bottom a:hover {
+        color: var(--color-accent);
     }
 
     .footer__designer {
@@ -224,11 +279,11 @@
         }
 
         .footer__address {
-            gap: 0.8rem;
+            gap: 2.2rem;
         }
 
         .footer__address p {
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             line-height: 1.1;
         }
 
@@ -258,8 +313,24 @@
             padding: 2rem 0;
         }
 
+        .footer__bottom-left {
+            gap: 2rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer__bottom-right {
+            align-items: flex-start;
+        }
+
         .footer__bottom p {
             font-size: 1.4rem;
+            line-height: 1.1;
+        }
+
+        .footer__bottom a {
+            font-size: 1.4rem;
+            line-height: 1.1;
         }
 
         .footer__designer {
