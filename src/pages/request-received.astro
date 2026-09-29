@@ -1,0 +1,107 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Request received | Woodara">
+
+        <section id="request-received" class="request-received">
+
+            <div class="container">
+
+                <div class="request-received__content">
+
+
+                    <h2>Request received</h2>
+
+                    <h3>Thank you for reaching out to Woodara.</h3>
+
+                    <p>
+                        We’ve received your project details. Our team will review your request and get back to you shortly with the next steps.
+                    </p>
+
+                    <p>
+                        We’ll be in touch soon.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    <style>
+
+        .request-received {
+            width: 100%;
+            min-height: calc(100vh - 6.2rem);
+            background-color: #F4F3F0;
+            display: flex;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 140rem;
+            padding: 0 2rem;
+            margin: 0 auto;
+        }
+
+        .request-received__content {
+            width: 100%;
+            max-width: 100rem;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .request-received h2 {
+            max-width: 75rem; 
+            margin: 0 auto 6rem;
+            color: var(--color-accent);
+            line-height: 1.1; }
+
+        .request-received h3 {
+            color: #151516;
+            font-size: 3.2rem;
+            line-height: 1.2;
+            margin: 0 0 2.4rem;
+        }
+
+        .request-received p {
+          
+            color: #58585A;
+            max-width: 58rem;
+            margin: 0 auto;
+            font-size: 1.6rem;
+            line-height: 1.4;
+            padding-bottom: 1.2rem;
+        }
+
+
+        @media (max-width: 768px) {
+
+            .request-received {
+                padding: 6rem 0;
+            }
+
+            .request-received h2 {
+                max-width: 100%;
+                font-size: 4.2rem;
+                margin-bottom: 5rem;
+            }
+
+
+            .request-received h3 {
+                font-size: 2.2rem;
+                margin: 4rem 0 1.6rem;
+            }
+
+            .request-received p {
+                font-size: 1.4rem;
+            
+            }
+
+        }
+
+    </style>
+
+</Layout>
