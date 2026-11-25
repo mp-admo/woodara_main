@@ -1,6 +1,13 @@
 ---
+import type { Language } from "../i18n";
 
+const { lang = "en", t } = Astro.props as {
+    lang: Language;
+    t: (typeof import("../i18n").translations)["en"];
+};
 ---
+
+
 <section class="audience">
 
     <div class="container">
@@ -9,17 +16,17 @@
 
             <div class="audience__eyebrow">
                 <span>03</span>
-                Who this is built for
+                {t.builtForEyebrow}
             </div>
 
             <div class="audience__header-content">
 
                 <h3 class="audience__title">
-                    Built for the people who carry the risk on site
+                    {t.builtForTitle}
                 </h3>
 
                 <p class="audience__description">
-                    Not a furniture catalogue — a control system for the part of your project that's hardest to predict: dozens of vendors, a factory floor you can't see, and a delivery date your own client is counting on.
+                    {t.builtForDescription}
                 </p>
 
             </div>
@@ -31,15 +38,15 @@
             <li class="audience__item">
 
                 <span class="audience__item-label">
-                    Who this is built for
+                    {t.builtForCard1Eyebrow}
                 </span>
 
                 <h4 class="audience__item-title">
-                    Furnish 6 to 255 units without hiring a procurement team
+                    {t.builtForCard1Title}
                 </h4>
 
                 <p class="audience__item-description">
-                    Not a furniture catalogue — a control system for the part of your project that's hardest to predict: dozens of vendors, a factory floor you can't see, and a delivery date your own client is counting on.
+                    {t.builtForCard1Description}
                 </p>
 
             </li>
@@ -47,15 +54,15 @@
             <li class="audience__item">
 
                 <span class="audience__item-label">
-                    Hospitality & F&B
+                    {t.builtForCard2Eyebrow}
                 </span>
 
                 <h4 class="audience__item-title">
-                    Furniture built to stay open, and a warranty line that answers
+                    {t.builtForCard2Title}
                 </h4>
 
                 <p class="audience__item-description">
-                    Certified, durable materials chosen for daily commercial use, plus after-sales service — because for a hotel or restaurant, a week of downtime costs more than the furniture itself.
+                    {t.builtForCard2Description}
                 </p>
 
             </li>
@@ -63,15 +70,15 @@
             <li class="audience__item">
 
                 <span class="audience__item-label">
-                    PMS & Procurement
+                    {t.builtForCard3Eyebrow}
                 </span>
 
                 <h4 class="audience__item-title">
-                    A production timeline you can put in front of your own client
+                    {t.builtForCard3Title}
                 </h4>
 
                 <p class="audience__item-description">
-                    Weekly production reporting, interim inspections and a technical partner who catches a spec problem before it reaches the factory floor — not after the container ships.
+                    {t.builtForCard3Description}
                 </p>
 
             </li>

@@ -1,5 +1,10 @@
 ---
+import type { Language } from "../i18n";
 
+const { lang = "en", t } = Astro.props as {
+    lang: Language;
+    t: (typeof import("../i18n").translations)["en"];
+};
 ---
 
 <section class="comparison">
@@ -15,17 +20,17 @@
 
         <div class="comparison__eyebrow">
             <span>05</span>
-            Direct vs. Woodara
+            {t.comparisonEyebrow}
         </div>
 
         <div class="comparison__header-content">
 
             <h3 class="comparison__title">
-                Going straight to a factory looks cheaper. It rarely stays that way.
+                {t.comparisonTitle}
             </h3>
 
             <p class="comparison__description">
-                Our sharpest edge isn't "we do everything" — independent benchmarking against 8 regional sourcing agencies puts Woodara clearly ahead on the two things that actually determine whether a project ships on time: turnkey installation and after-sales warranty response.
+                {t.comparisonDescription}
             </p>
 
         </div>
@@ -35,25 +40,25 @@
             <div class="comparison__column comparison__column--direct">
 
                 <h5 class="comparison__heading">
-                    Direct to one factory
+                    {t.comparisonDirectHeading}
                 </h5>
 
                 <ul class="comparison__list">
 
                     <li class="comparison__item">
-                        <p>One quote, no benchmark — you don't know if it's fair</p>
+                        <p>{t.comparisonDirectItem1}</p>
                     </li>
 
                     <li class="comparison__item">
-                        <p>Quality control depends on trusting the same factory that's paid to ship</p>
+                        <p>{t.comparisonDirectItem2}</p>
                     </li>
 
                     <li class="comparison__item">
-                        <p>You coordinate customs, freight and installation yourself</p>
+                        <p>{t.comparisonDirectItem3}</p>
                     </li>
 
                     <li class="comparison__item">
-                        <p>If a piece is wrong or damaged, you're negotiating alone</p>
+                        <p>{t.comparisonDirectItem4}</p>
                     </li>
 
                 </ul>
@@ -63,25 +68,25 @@
             <div class="comparison__column comparison__column--woodara">
 
                 <h5 class="comparison__heading">
-                    With Woodara
+                    {t.comparisonWoodaraHeading}
                 </h5>
 
                 <ul class="comparison__list">
 
                     <li class="comparison__item">
-                        <p>Tendered across 7+ of our 450+ factories — you see the pricing spread before you commit</p>
+                        <p>{t.comparisonWoodaraItem1}</p>
                     </li>
 
                     <li class="comparison__item">
-                        <p>Interim inspections and weekly reporting, independent of the factory</p>
+                        <p>{t.comparisonWoodaraItem2}</p>
                     </li>
 
                     <li class="comparison__item">
-                        <p>Customs, freight and on-site installation handled end to end — 94% turnkey install score, the highest of any agency benchmarked</p>
+                        <p>{t.comparisonWoodaraItem3}</p>
                     </li>
 
                     <li class="comparison__item">
-                        <p>A standing warranty desk — 93% after-sales rating, most competitors score under 10%</p>
+                        <p>{t.comparisonWoodaraItem4}</p>
                     </li>
 
                 </ul>

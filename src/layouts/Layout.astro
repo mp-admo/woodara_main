@@ -4,10 +4,20 @@ import "../styles/global.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
-const { title = "Woodara"} = Astro.props;
+import type { Language } from "../i18n";
+
+const { 
+    title = "Woodara",
+    lang = "en",
+    t
+} = Astro.props as {
+    title?: string;
+    lang: Language;
+    t: (typeof import("../i18n").translations)["en"];
+};
 ---
 
-<html lang="en">
+<html lang={lang}>
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -61,7 +71,7 @@ const { title = "Woodara"} = Astro.props;
 			/>
 		</noscript>
 		
-        <Header />
+        <Header lang={lang} t={t} />
 
         <main>
 
@@ -69,7 +79,7 @@ const { title = "Woodara"} = Astro.props;
 
         </main>
 
-        <Footer />
+        <Footer lang={lang} t={t} />
 
 	</body>
 

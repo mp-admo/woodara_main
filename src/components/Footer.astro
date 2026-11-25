@@ -1,5 +1,10 @@
 ---
+import type { Language } from "../i18n";
 
+const { lang = "en", t } = Astro.props as {
+    lang: Language;
+    t: (typeof import("../i18n").translations)["en"];
+};
 ---
 
 <footer class="footer">
@@ -10,7 +15,7 @@
 
             <div class="footer__brand">
 
-                <a href="/" class="logo">
+                <a href={`/${lang}/`} class="logo">
                     <img src="/logo_woodara_footer.svg" alt="Woodara">
                 </a>
 
@@ -27,27 +32,27 @@
                 <div class="footer__links">
 
                     <a href="#categories">
-                        Product categories
+                        {t.headerCategories}
                     </a>
 
                     <a href="#projects">
-                        Projects
+                        {t.headerProjects}
                     </a>
 
                     <a href="#scope">
-                        Scope
+                        {t.headerScope}
                     </a>
 
                     <a href="#process">
-                        Process
+                        {t.headerProcess}
                     </a>
 
                     <a href="#contact">
-                        Contact
+                        {t.headerContact}
                     </a>
 
                     <a href="#">
-                        About the company
+                        {t.footerAbout}
                     </a>
                     
                 </div>
@@ -88,23 +93,23 @@
 
             <div class="footer__bottom-left">
                 <p class="footer__copyright">
-                    © 2026 Woodara. All rights reserved
+                    {t.footerCopyright}
                 </p>
 
                 <a
-                    href="/privacy-policy"
+                    href={`/${lang}/privacy-policy/`}
                     class="footer__privacy"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    Privacy Policy
+                    {t.footerPrivacy}
                 </a>
                 
             </div>
 
             <div class="footer__bottom-right">
                 <p class="footer__designer">
-                    Designed by Dojotal
+                    {t.footerDesigner}
                 </p>
             </div>
 

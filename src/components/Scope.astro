@@ -1,5 +1,10 @@
 ---
+import type { Language } from "../i18n";
 
+const { lang = "en", t } = Astro.props as {
+    lang: Language;
+    t: (typeof import("../i18n").translations)["en"];
+};
 ---
 
 <section class="scope" id="scope">
@@ -14,16 +19,16 @@
 
                     <div class="scope__eyebrow">
                         <span>04</span>
-                        Scope of work
+                        {t.scopeEyebrow}
                     </div>
 
                     <div class="scope__intro-text">
                         <p>
-                            Not a vague "full service" — this is the specific list of what's inside a Woodara engagement, end to end.
+                            {t.scopeIntro1}
                         </p>
 
                         <p>
-                            You keep the design sign-off and the budget decision. We run everything between "approved" and "installed."
+                            {t.scopeIntro2}
                         </p>
                     </div>
 
@@ -38,49 +43,49 @@
             <div class="scope__right">
 
                 <h2 class="scope__title">
-                    One contract. Eight things you stop managing yourself.
+                    {t.scopeTitle}
                 </h2>
 
                 <ul class="scope__list">
 
                     <li class="scope__item">
                         <span class="scope__number">01</span>
-                        <p>Factory sourcing & competitive tender within a network of 450+ verified factories</p>
+                        <p>{t.scopeItem1}</p>
                     </li>
 
                     <li class="scope__item">
                         <span class="scope__number">02</span>
-                        <p>Technical specification — your renders turned into production-ready drawings</p>
+                        <p>{t.scopeItem2}</p>
                     </li>
 
                     <li class="scope__item">
                         <span class="scope__number">03</span>
-                        <p>Production supervision — weekly reporting and interim inspections</p>
+                        <p>{t.scopeItem3}</p>
                     </li>
 
                     <li class="scope__item">
                         <span class="scope__number">04</span>
-                        <p>Material and quality testing before anything ships</p>
+                        <p>{t.scopeItem4}</p>
                     </li>
 
                     <li class="scope__item">
                         <span class="scope__number">05</span>
-                        <p>Import licensing, certification and customs clearance</p>
+                        <p>{t.scopeItem5}</p>
                     </li>
 
                     <li class="scope__item">
                         <span class="scope__number">06</span>
-                        <p>Freight and logistics via Jakarta, Surabaya and Denpasar ports</p>
+                        <p>{t.scopeItem6}</p>
                     </li>
 
                     <li class="scope__item">
                         <span class="scope__number">07</span>
-                        <p>On-site installation and a client walk-through at handover</p>
+                        <p>{t.scopeItem7}</p>
                     </li>
 
                     <li class="scope__item">
                         <span class="scope__number">08</span>
-                        <p>Warranty service after handover — one line to call, not one per factory</p>
+                        <p>{t.scopeItem8}</p>
                     </li>
 
                 </ul>

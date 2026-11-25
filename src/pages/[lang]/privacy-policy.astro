@@ -1,0 +1,517 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Contact from "../../components/Contact.astro";
+
+import { translations, type Language } from "../../i18n";
+
+export function getStaticPaths() {
+    return [
+        { params: { lang: "en" } },
+        { params: { lang: "id" } },
+    ];
+}
+
+const lang = Astro.params.lang as Language;
+const t = translations[lang];
+---
+
+<Layout title={t.privacyPageTitle} lang={lang} t={t}>
+
+        <section id="privacy-policy" class="privacy-policy">
+
+            <div class="container">
+
+                <div class="privacy-policy__content">
+
+
+                    <h1>{t.privacyTitle}</h1>
+
+                    <p>{t.privacyUpdated}</p>
+
+                    <p>
+                        {t.privacyIntro1}
+                    </p>
+
+                    <p>
+                        {t.privacyIntro2}
+                    </p>
+
+
+                    <h2>{t.privacyInterpretationTitle}</h2>
+
+                    <h3>{t.privacyInterpretationHeading}</h3>
+
+                    <p>
+                        {t.privacyInterpretationText}
+                    </p>
+
+
+                    <h3>{t.privacyDefinitionsHeading}</h3>
+
+                    <p>{t.privacyDefinitionsIntro}</p>
+
+                    <ul>
+                        <li><strong>{t.privacyTermAccount}</strong> {t.privacyDefAccount}</li>
+
+                        <li><strong>{t.privacyTermAffiliate}</strong> {t.privacyDefAffiliate}</li>
+
+                        <li><strong>{t.privacyTermCompany}</strong> {t.privacyDefCompany}</li>
+
+                        <li><strong>{t.privacyTermCookies}</strong> {t.privacyDefCookies}</li>
+
+                        <li><strong>{t.privacyTermCountry}</strong> {t.privacyDefCountry}</li>
+
+                        <li><strong>{t.privacyTermDevice}</strong> {t.privacyDefDevice}</li>
+
+                        <li><strong>{t.privacyTermPersonalData}</strong> {t.privacyDefPersonalData}</li>
+
+                        <li><strong>{t.privacyTermService}</strong> {t.privacyDefService}</li>
+
+                        <li><strong>{t.privacyTermServiceProvider}</strong> {t.privacyDefServiceProvider}</li>
+
+                        <li><strong>{t.privacyTermUsageData}</strong> {t.privacyDefUsageData}</li>
+
+                        <li><strong>{t.privacyTermWebsite}</strong> {t.privacyDefWebsite} <a href="https://www.woodara.online/">https://www.woodara.online/</a></li>
+
+                        <li><strong>{t.privacyTermYou}</strong> {t.privacyDefYou}</li>
+                    </ul>
+
+
+                    <h2>{t.privacyCollectingTitle}</h2>
+
+                    <h3>{t.privacyDataTypesHeading}</h3>
+
+                    <h4>{t.privacyTermPersonalData}</h4>
+
+                    <p>
+                        {t.privacyPersonalDataText}
+                    </p>
+
+                    <ul>
+                        <li>{t.privacyEmailAddress}</li>
+                        <li>{t.privacyFullName}</li>
+                        <li>{t.privacyPhoneNumber}</li>
+                        <li>{t.privacyTermUsageData}</li>
+                    </ul>
+
+
+                    <h4>{t.privacyTermUsageData}</h4>
+
+                    <p>{t.privacyUsageDataText1}</p>
+
+                    <p>
+                        {t.privacyUsageDataText2}
+                    </p>
+
+                    <p>
+                        {t.privacyUsageDataText3}
+                    </p>
+
+                    <p>
+                        {t.privacyUsageDataText4}
+                    </p>
+
+
+                    <h4>{t.privacyTrackingHeading}</h4>
+
+                    <p>
+                        {t.privacyTrackingText}
+                    </p>
+
+                    <ul>
+                        <li>
+                            <strong>{t.privacyBrowserCookiesTerm}</strong>
+                            {t.privacyBrowserCookiesText}
+                        </li>
+
+                        <li>
+                            <strong>{t.privacyWebBeaconsTerm}</strong>
+                            {t.privacyWebBeaconsText}
+                        </li>
+                    </ul>
+
+                    <p>
+                        {t.privacyCookieTypesTextStart}
+                        <a
+                            href="https://www.termsfeed.com/blog/cookies/#What_Are_Cookies"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            {t.privacyTermsFeedLink}
+                        </a>
+                        {t.privacyCookieTypesTextEnd}
+                    </p>
+
+                    <p>
+                        {t.privacyCookiePurposesIntro}
+                    </p>
+
+                    <ul>
+                        <li>
+                            <strong>{t.privacyCookieEssentialTitle}</strong>
+                            <br />
+                            {t.privacyCookieTypeSession}
+                            <br />
+                            {t.privacyCookieAdministeredByUs}
+                            <br />
+                            {t.privacyCookieEssentialPurpose}
+                        </li>
+
+                        <li>
+                            <strong>{t.privacyCookieAcceptanceTitle}</strong>
+                            <br />
+                            {t.privacyCookieTypePersistent}
+                            <br />
+                            {t.privacyCookieAdministeredByUs}
+                            <br />
+                            {t.privacyCookieAcceptancePurpose}
+                        </li>
+
+                        <li>
+                            <strong>{t.privacyCookieFunctionalityTitle}</strong>
+                            <br />
+                            {t.privacyCookieTypePersistent}
+                            <br />
+                            {t.privacyCookieAdministeredByUs}
+                            <br />
+                            {t.privacyCookieFunctionalityPurpose}
+                        </li>
+                    </ul>
+
+                    <p>
+                        {t.privacyCookieMoreInfo}
+                    </p>
+
+
+                    <h3>{t.privacyUseHeading}</h3>
+
+                    <p>{t.privacyUseIntro}</p>
+
+                    <ul>
+                        <li><strong>{t.privacyUseProvideTerm}</strong>{t.privacyUseProvideText}</li>
+
+                        <li><strong>{t.privacyUseAccountTerm}</strong> {t.privacyUseAccountText}</li>
+
+                        <li><strong>{t.privacyUseContractTerm}</strong> {t.privacyUseContractText}</li>
+
+                        <li><strong>{t.privacyUseContactTerm}</strong> {t.privacyUseContactText}</li>
+
+                        <li><strong>{t.privacyUseOffersTerm}</strong> {t.privacyUseOffersTextStart} <a href="mailto:partners@woodara.shop">partners@woodara.shop</a> {t.privacyUseOffersTextEnd}</li>
+
+                        <li><strong>{t.privacyUseRequestsTerm}</strong> {t.privacyUseRequestsText}</li>
+
+                        <li><strong>{t.privacyBusinessTransfersTerm}</strong> {t.privacyUseBusinessTransfersText}</li>
+
+                        <li><strong>{t.privacyUseOtherTerm}</strong> {t.privacyUseOtherText}</li>
+                    </ul>
+
+                    <p>{t.privacyShareIntro}</p>
+
+                    <ul>
+                        <li><strong>{t.privacyShareProvidersTerm}</strong> {t.privacyShareProvidersText}</li>
+
+                        <li><strong>{t.privacyBusinessTransfersTerm}</strong> {t.privacyShareBusinessTransfersText}</li>
+
+                        <li><strong>{t.privacyShareAffiliatesTerm}</strong> {t.privacyShareAffiliatesText}</li>
+
+                        <li><strong>{t.privacySharePartnersTerm}</strong> {t.privacySharePartnersText}</li>
+
+                        <li><strong>{t.privacyShareUsersTerm}</strong> {t.privacyShareUsersText}</li>
+
+                        <li><strong>{t.privacyShareConsentTerm}</strong> {t.privacyShareConsentText}</li>
+                    </ul>
+
+
+                    <h3>{t.privacyRetentionHeading}</h3>
+
+                    <p>
+                        {t.privacyRetentionText1}
+                    </p>
+
+                    <p>
+                        {t.privacyRetentionText2}
+                    </p>
+
+
+                    <h3>{t.privacyTransferHeading}</h3>
+
+                    <p>
+                        {t.privacyTransferText1}
+                    </p>
+
+                    <p>
+                        {t.privacyTransferText2}
+                    </p>
+
+                    <p>
+                        {t.privacyTransferText3}
+                    </p>
+
+
+                    <h3>{t.privacyDeleteHeading}</h3>
+
+                    <p>
+                        {t.privacyDeleteText1}
+                    </p>
+
+                    <p>
+                        {t.privacyDeleteText2}
+                    </p>
+
+                    <p>
+                        {t.privacyDeleteText3}
+                    </p>
+
+                    <p>
+                        {t.privacyDeleteText4}
+                    </p>
+
+
+                    <h3>{t.privacyDisclosureHeading}</h3>
+
+                    <h4>{t.privacyBusinessTransactionsHeading}</h4>
+
+                    <p>
+                        {t.privacyBusinessTransactionsText}
+                    </p>
+
+                    <h4>{t.privacyLawEnforcementHeading}</h4>
+
+                    <p>
+                        {t.privacyLawEnforcementText}
+                    </p>
+
+                    <h4>{t.privacyLegalRequirementsHeading}</h4>
+
+                    <p>
+                        {t.privacyLegalRequirementsText}
+                    </p>
+
+                    <ul>
+                        <li>{t.privacyLegalItem1}</li>
+                        <li>{t.privacyLegalItem2}</li>
+                        <li>{t.privacyLegalItem3}</li>
+                        <li>{t.privacyLegalItem4}</li>
+                        <li>{t.privacyLegalItem5}</li>
+                    </ul>
+
+
+                    <h3>{t.privacySecurityHeading}</h3>
+
+                    <p>
+                        {t.privacySecurityText}
+                    </p>
+
+
+                    <h2>{t.privacyChildrenTitle}</h2>
+
+                    <p>
+                        {t.privacyChildrenText1}
+                    </p>
+
+                    <p>
+                        {t.privacyChildrenText2}
+                    </p>
+
+
+                    <h2>{t.privacyLinksTitle}</h2>
+
+                    <p>
+                        {t.privacyLinksText1}
+                    </p>
+
+                    <p>
+                        {t.privacyLinksText2}
+                    </p>
+
+
+                    <h2>{t.privacyChangesTitle}</h2>
+
+                    <p>
+                        {t.privacyChangesText1}
+                    </p>
+
+                    <p>
+                        {t.privacyChangesText2}
+                    </p>
+
+                    <p>
+                        {t.privacyChangesText3}
+                    </p>
+
+
+                    <h2>{t.privacyContactTitle}</h2>
+
+                    <p>
+                        {t.privacyContactText}
+                    </p>
+
+                    <ul>
+                        <li>{t.privacyContactCompany}</li>
+                        <li>
+                            {t.privacyContactAddress}
+                        </li>
+                        <li>
+                            {t.privacyContactEmail}
+                            <a href="mailto:partners@woodara.shop">
+                                partners@woodara.shop
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    <style>
+
+        .privacy-policy {
+            background-color: #F4F3F0;
+            padding: 10rem 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 140rem;
+            padding: 0 2rem;
+            margin: 0 auto;
+        }
+
+        .privacy-policy__content {
+            max-width: 100rem;
+            margin: 0;
+        }
+
+        .privacy-policy h1 {
+            max-width: 75rem;
+            color: #151516;
+            font-size: clamp(4.2rem, 4.4vw, 5.2rem);
+            line-height: 1.1;
+            margin: 0 0 8rem;
+        }
+
+        .privacy-policy h2 {
+            color: #151516;
+            font-size: clamp(2.8rem, 3.5vw, 3.2rem);
+            line-height: 1.1;
+            margin: 8rem 0 3rem;
+        }
+
+        .privacy-policy h3 {
+            color: #151516;
+            font-size: 2.4rem;
+            line-height: 1.2;
+            margin: 5rem 0 1.6rem;
+        }
+
+        .privacy-policy h4 {
+            color: #151516;
+            font-size: 2rem;
+            line-height: 1.2;
+            margin: 4rem 0 3rem;
+        }
+
+        .privacy-policy p {
+          
+            color: #58585A;
+            font-size: 1.6rem;
+            line-height: 1.4;
+            margin: 0 0 1.8rem;
+        }
+
+       .privacy-policy ul {
+            max-width: 90rem;
+            margin: 0 0 3rem;
+            padding-left: 2rem;
+            list-style: disc;
+        }
+
+        .privacy-policy li {
+            color: #58585A;
+            font-size: 1.6rem;
+            line-height: 1.4;
+            margin-bottom: 1.6rem;
+            padding-left: 0.5rem;
+        }
+
+        .privacy-policy a {
+            color: #151516;
+            text-decoration: underline;
+            text-underline-offset: 0.3rem;
+        }
+
+        .privacy-policy strong {
+            color: #151516;
+            font-weight: 500;
+        }
+
+        .privacy-policy h1 + p {
+            font-family: 'TT Firs Neue', sans-serif;
+            color: #58585A;
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            letter-spacing: -0.03em;
+            margin-bottom: 3rem;
+            color: var(--color-accent);
+        }
+
+        @media (max-width: 768px) {
+
+            .privacy-policy {
+                padding: 6rem 0;
+            }
+
+            .privacy-policy h1 {
+                max-width: 100%;
+                font-size: 4.2rem;
+                margin-bottom: 5rem;
+            }
+
+            .privacy-policy h2 {
+                font-size: 3.2rem;
+                margin: 5rem 0 2.4rem;
+            }
+
+            .privacy-policy h3 {
+                font-size: 2.2rem;
+                margin: 4rem 0 1.6rem;
+            }
+
+            .privacy-policy h4 {
+                font-size: 1.8rem;
+                margin: 3rem 0 2rem;
+            }
+
+            .privacy-policy p {
+                font-size: 1.4rem;
+                line-height: 1.4;
+                margin-bottom: 1.6rem;
+            }
+
+            .privacy-policy ul {
+                max-width: 100%;
+                padding-left: 2rem;
+                margin-bottom: 2.4rem;
+            }
+
+            .privacy-policy li {
+                font-size: 1.4rem;
+                line-height: 1.4;
+                margin-bottom: 1.2rem;
+                padding-left: 0.4rem;
+            }
+
+            .privacy-policy h1 + p {
+                font-size: 1.3rem;
+                margin-bottom: 3rem;
+            }
+
+        }
+
+    </style>
+
+    <Contact lang={lang} t={t} />
+
+</Layout>

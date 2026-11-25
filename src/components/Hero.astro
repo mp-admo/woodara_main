@@ -1,5 +1,10 @@
 ---
+import type { Language } from "../i18n";
 
+const { lang = "en", t } = Astro.props as {
+    lang: Language;
+    t: (typeof import("../i18n").translations)["en"];
+};
 ---
 
 <section class="hero">
@@ -11,16 +16,20 @@
             <div class="hero__main">
 
                 <div class="hero__eyebrow">
-                    The delay. The bad batch. The warranty claim nobody answers.
-                    <span>Not your problem to manage.</span>
+                    {t.heroEyebrow}
+                    <span>{t.heroEyebrowAccent}</span>
                 </div>
 
                 <h1 class="hero__title">
-                    We fit out your development — <span>on budget, on schedule,</span> without you managing a single factory.
+                    {t.heroTitleStart}
+                    {" "}
+                    <span>{t.heroTitleAccent}</span>
+                    {" "}
+                    {t.heroTitleEnd}
                 </h1>
 
                 <p class="hero__description">
-                    Woodara runs the sourcing, tendering, quality control and logistics behind your interiors, so developers, hospitality operators and construction teams building in Bali get transparent factory pricing and one point of control — not agency mark-ups and scattered vendors.
+                    {t.heroDescription}
                 </p>
 
             </div>
@@ -32,17 +41,17 @@
                 </div>
 
                 <p class="hero__stat-description">
-                    Typical procurement savings vs. sourcing direct from a single factory — from tendering within a network of 450+ verified factories instead of accepting one quote.
+                    {t.heroStatDescription}
                 </p>
 
                 <div class="hero__actions">
 
                     <a href="#contact" class="hero__button">
-                        Get a project review
+                        {t.heroButton}
                     </a>
 
                     <a href="#projects" class="hero__button hero__button--secondary">
-                        See completed projects
+                        {t.heroProjectsButton}
                     </a>
 
                 </div>

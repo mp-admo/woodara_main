@@ -1,0 +1,88 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Hero from "../../components/Hero.astro";
+import Showcase from "../../components/Showcase.astro";
+import Categories from "../../components/Categories.astro";
+import HeroShowcaseDecorations from "../../components/decorations/HeroShowcaseDecorations.astro";
+import Projects from "../../components/Projects.astro";
+import Audience from "../../components/Audience.astro";
+import Scope from "../../components/Scope.astro";
+import AudienceScopeDecorations from "../../components/decorations/AudienceScopeDecorations.astro";
+import Comparison from "../../components/Comparison.astro";
+import Volume from "../../components/Volume.astro";
+import Honest from "../../components/Honest.astro";
+import Optimization from "../../components/Optimization.astro";
+import Process from "../../components/Process.astro";
+import WorkflowDecorations from "../../components/decorations/WorkflowDecorations.astro";
+import Faq from "../../components/Faq.astro";
+import Contact from "../../components/Contact.astro";
+
+import { translations, type Language } from "../../i18n";
+
+export function getStaticPaths() {
+    return [
+        { params: { lang: "en" } },
+        { params: { lang: "id" } },
+    ];
+}
+
+const lang = Astro.params.lang as Language;
+const t = translations[lang];
+---
+
+<Layout lang={lang} t={t}>
+
+    <div class="hero-showcase">
+
+        <Hero lang={lang} t={t} />
+        <Showcase lang={lang} t={t} />
+        <Categories lang={lang} t={t} />
+        <HeroShowcaseDecorations />
+
+    </div>
+
+    <Projects lang={lang} t={t} />
+
+    <div class="audience-scope">
+
+        <Audience lang={lang} t={t} />
+        <Scope lang={lang} t={t} />
+        <AudienceScopeDecorations />
+
+    </div>
+
+    <Comparison lang={lang} t={t} />
+
+    <div class="workflow">
+
+        <Volume lang={lang} t={t} />
+        <Honest lang={lang} t={t} />
+        <Optimization lang={lang} t={t} />
+        <Process lang={lang} t={t} />
+        <WorkflowDecorations />
+
+    </div>
+
+    <Faq lang={lang} t={t} />
+
+    <Contact lang={lang} t={t} />
+
+</Layout>
+
+<style>
+
+    .hero-showcase {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .audience-scope {
+        position: relative;
+    }
+
+    .workflow {
+        position: relative;
+        overflow: hidden;
+    }
+
+</style>

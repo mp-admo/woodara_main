@@ -1,5 +1,10 @@
 ---
+import type { Language } from "../i18n";
 
+const { lang = "en", t } = Astro.props as {
+    lang: Language;
+    t: (typeof import("../i18n").translations)["en"];
+};
 ---
 
 <section class="process" id="process">
@@ -12,7 +17,7 @@
             <div class="process__left">
 
                 <h2 class="process__title">
-                    From render to final install, in five stages
+                    {t.processTitle}
                 </h2>
 
 
@@ -30,13 +35,13 @@
                             <div class="process__info">
 
                                 <h4 class="process__item-title">
-                                    Estimate & tender
+                                    {t.processStep1Title}
                                 </h4>
 
                                 <div class="process__content-box">
 
                                     <p class="process__text">
-                                        You send renders and a spec. We tender it across our factory network and return a comparative quote, not a single price.
+                                        {t.processStep1Text}
                                     </p>
 
                                 </div>
@@ -60,13 +65,13 @@
                             <div class="process__info">
 
                                 <h4 class="process__item-title">
-                                    Technical specification
+                                    {t.processStep2Title}
                                 </h4>
 
                                 <div class="process__content-box">
 
                                     <p class="process__text">
-                                        Your design is translated into production-ready drawings and material call-outs the factory can build from without guesswork.
+                                        {t.processStep2Text}
                                     </p>
 
                                 </div>
@@ -90,13 +95,13 @@
                             <div class="process__info">
 
                                 <h4 class="process__item-title">
-                                    Production under supervision
+                                    {t.processStep3Title}
                                 </h4>
 
                                 <div class="process__content-box">
 
                                     <p class="process__text">
-                                        Our account managers and on-site runners work from the factory floor, with weekly reporting and interim inspections.
+                                        {t.processStep3Text}
                                     </p>
 
                                 </div>
@@ -120,13 +125,13 @@
                             <div class="process__info">
 
                                 <h4 class="process__item-title">
-                                    Logistics & customs
+                                    {t.processStep4Title}
                                 </h4>
 
                                 <div class="process__content-box">
 
                                     <p class="process__text"> 
-                                        Freight, import licensing, certification and customs clearance handled end to end across Jakarta, Surabaya and Denpasar ports.
+                                        {t.processStep4Text}
                                     </p>
 
                                 </div>
@@ -150,13 +155,13 @@
                             <div class="process__info">
 
                                 <h4 class="process__item-title">
-                                    Final install & handover
+                                    {t.processStep5Title}
                                 </h4>
 
                                 <div class="process__content-box">
 
                                     <p class="process__text">
-                                        On-site installation, client walk-through and a standing warranty line for anything that needs attention after handover.
+                                        {t.processStep5Text}
                                     </p>
 
                                 </div>
@@ -177,7 +182,7 @@
 
                 <div class="process__eyebrow">
                     <span>09</span>
-                    How we work
+                    {t.processEyebrow}
                 </div>
 
                 <div class="process__image">
@@ -202,7 +207,7 @@
                         max="100"
                         value="50"
                         class="process__image-range"
-                        aria-label="Process slider"
+                        aria-label={t.processSliderLabel}
                     >
 
                     <div class="process__image-handle">

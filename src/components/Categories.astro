@@ -1,5 +1,10 @@
 ---
+import type { Language } from "../i18n";
 
+const { lang = "en", t } = Astro.props as {
+    lang: Language;
+    t: (typeof import("../i18n").translations)["en"];
+};
 ---
 
 <section class="categories" id="categories">
@@ -10,15 +15,17 @@
 
             <div class="categories__eyebrow">
                 <span>01</span>
-                What you can order
+                {t.categoriesEyebrow}
             </div>
 
             <h3 class="categories__title">
-                One supplier account.<br>Nine categories already in production.
+                {t.categoriesTitleStart}
+                <br />
+                {t.categoriesTitleAccent}
             </h3>
 
             <p class="categories__description">
-                Not a roadmap — this is what we've sourced, quality-checked and delivered to sites in Bali already, tendered across the same 450+ factory network as everything else on this page.
+                {t.categoriesDescription}
             </p>
 
         </div>
@@ -29,11 +36,11 @@
             <li class="categories__item">
 
                 <h4 class="categories__item-title">
-                    Case & wood furnitre
+                    {t.categoryCaseWoodTitle}
                 </h4>
 
                 <p class="categories__item-info">
-                    Wardrobes, cabinets, chairs, tables, bedside tables
+                    {t.categoryCaseWoodDescription}
                 </p>
 
                 <div class="categories__item-image">
@@ -46,11 +53,11 @@
             <li class="categories__item">
 
                 <h4 class="categories__item-title">
-                    Sofas & beds
+                    {t.categorySofasBedsTitle}
                 </h4>
 
                 <p class="categories__item-info">
-                    Upholstered seating and bed frames
+                    {t.categorySofasBedsDescription}
                 </p>
 
                 <div class="categories__item-image">
@@ -63,11 +70,11 @@
             <li class="categories__item">
 
                 <h4 class="categories__item-title">
-                    Lighting
+                    {t.categoryLightingTitle}
                 </h4>
 
                 <p class="categories__item-info">
-                    General fixtures and track lighting systems
+                    {t.categoryLightingDescription}
                 </p>
 
                 <div class="categories__item-image">
@@ -80,11 +87,11 @@
             <li class="categories__item">
 
                 <h4 class="categories__item-title">
-                    Sanitaryware
+                    {t.categorySanitarywareTitle}
                 </h4>
 
                 <p class="categories__item-info">
-                    Bathroom fixtures and fittings
+                    {t.categorySanitarywareDescription}
                 </p>
 
                 <div class="categories__item-image">
@@ -97,11 +104,11 @@
             <li class="categories__item">
 
                 <h4 class="categories__item-title">
-                    Outdoor furniture
+                    {t.categoryOutdoorTitle}
                 </h4>
 
                 <p class="categories__item-info">
-                    Weather-rated pieces for pool decks, terraces, gardens
+                    {t.categoryOutdoorDescription}
                 </p>
 
                 <div class="categories__item-image">
@@ -114,11 +121,11 @@
             <li class="categories__item">
 
                 <h4 class="categories__item-title">
-                    Mattresses
+                    {t.categoryMattressesTitle}
                 </h4>
 
                 <p class="categories__item-info">
-                    Hospitality and residential grade
+                    {t.categoryMattressesDescription}
                 </p>
 
                 <div class="categories__item-image">
@@ -131,11 +138,11 @@
             <li class="categories__item">
 
                 <h4 class="categories__item-title">
-                    Electrical fittings
+                    {t.categoryElectricalTitle}
                 </h4>
 
                 <p class="categories__item-info">
-                    Switches and sockets
+                    {t.categoryElectricalDescription}
                 </p>
 
                 <div class="categories__item-image">
@@ -148,11 +155,11 @@
             <li class="categories__item">
 
                 <h4 class="categories__item-title">
-                    Curtains & Furnishings
+                    {t.categoryCurtainsTitle}
                 </h4>
 
                 <p class="categories__item-info">
-                    Drapery, soft furnishings & window treatments
+                    {t.categoryCurtainsDescription}
                 </p>
 
                 <div class="categories__item-image">
@@ -165,11 +172,11 @@
             <li class="categories__item">
 
                 <h4 class="categories__item-title">
-                    Architectural trim
+                    {t.categoryArchitecturalTrimTitle}
                 </h4>
 
                 <p class="categories__item-info">
-                    Shadow-gap profiles for ceilings and walls
+                    {t.categoryArchitecturalTrimDescription}
                 </p>
 
                 <div class="categories__item-image">

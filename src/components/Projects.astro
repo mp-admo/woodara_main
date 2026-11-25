@@ -1,5 +1,10 @@
 ---
+import type { Language } from "../i18n";
 
+const { lang = "en", t } = Astro.props as {
+    lang: Language;
+    t: (typeof import("../i18n").translations)["en"];
+};
 ---
 
 <section class="projects" id="projects">
@@ -9,18 +14,20 @@
         <div class="projects__header">
 
             <div class="projects__eyebrow">
-                <span>03</span>
-                Who this is built for
+                <span>02</span>
+                {t.projectsEyebrow}
             </div>
 
             <div class="projects__header-content">
 
                 <h2 class="projects__title">
-                    38 projects across Bali. Here's a first look.
+                    {t.projectsTitleStart}
+                    <br />
+                    {t.projectsTitleEnd}
                 </h2>
 
                 <p class="projects__description">
-                    Full written case studies are being published project by project — for now, a look at scale and finish across villas, residences and hospitality fit-outs.
+                    {t.projectsDescription}
                 </p>
 
             </div>
@@ -60,7 +67,7 @@
                             </span>
 
                             <span class="projects__category">
-                                Development project
+                                {t.projectCategoryDevelopment}
                             </span>
 
                         </div>
@@ -104,7 +111,7 @@
                             </span>
 
                             <span class="projects__category">
-                                Private villas
+                                {t.projectCategoryPrivateVillas}
                             </span>
 
                         </div>
@@ -148,7 +155,7 @@
                             </span>
 
                             <span class="projects__category">
-                                Private villas
+                                {t.projectCategoryPrivateVillas}
                             </span>
 
                         </div>
@@ -192,7 +199,7 @@
                             </span>
 
                             <span class="projects__category">
-                                Private villas
+                                {t.projectCategoryPrivateVillas}
                             </span>
 
                         </div>
@@ -236,7 +243,7 @@
                             </span>
 
                             <span class="projects__category">
-                                Development project
+                                {t.projectCategoryDevelopment}
                             </span>
 
                         </div>
@@ -280,7 +287,7 @@
                             </span>
 
                             <span class="projects__category">
-                                Restaurants (HoReCa)
+                                {t.projectCategoryRestaurants}
                             </span>
 
                         </div>
@@ -324,7 +331,7 @@
                             </span>
 
                             <span class="projects__category">
-                                Development project
+                                {t.projectCategoryDevelopment}
                             </span>
 
                         </div>
@@ -368,7 +375,7 @@
                             </span>
 
                             <span class="projects__category">
-                                Development project
+                                {t.projectCategoryDevelopment}
                             </span>
 
                         </div>
@@ -412,7 +419,7 @@
                             </span>
 
                             <span class="projects__category">
-                                Restaurants (HoReCa)
+                                {t.projectCategoryRestaurants}
                             </span>
 
                         </div>
@@ -456,7 +463,7 @@
                             </span>
 
                             <span class="projects__category">
-                                Development project
+                                {t.projectCategoryDevelopment}
                             </span>
 
                         </div>
@@ -500,7 +507,7 @@
                             </span>
 
                             <span class="projects__category">
-                                Private villas
+                                {t.projectCategoryPrivateVillas}
                             </span>
 
                         </div>
@@ -544,7 +551,7 @@
                             </span>
 
                             <span class="projects__category">
-                                Development project
+                                {t.projectCategoryDevelopment}
                             </span>
 
                         </div>
@@ -588,7 +595,7 @@
                             </span>
 
                             <span class="projects__category">
-                                Restaurants (HoReCa)
+                                {t.projectCategoryRestaurants}
                             </span>
 
                         </div>
@@ -632,7 +639,7 @@
                             </span>
 
                             <span class="projects__category">
-                                Development project
+                                {t.projectCategoryDevelopment}
                             </span>
 
                         </div>
@@ -676,7 +683,7 @@
                             </span>
 
                             <span class="projects__category">
-                                Development project
+                                {t.projectCategoryDevelopment}
                             </span>
 
                         </div>
@@ -696,8 +703,13 @@
 
         <div class="projects__more">
 
-            <button type="button" class="projects__button">
-                More Projects
+            <button
+                type="button"
+                class="projects__button"
+                data-more={t.projectsMoreButton}
+                data-less={t.projectsLessButton}
+            >
+                {t.projectsMoreButton}
             </button>
 
         </div>
@@ -985,6 +997,8 @@
 
 const projectsButton = document.querySelector('.projects__button') as HTMLElement | null;
 const projects = document.querySelectorAll('.projects__item');
+const moreLabel = projectsButton?.dataset.more ?? 'More Projects';
+const lessLabel = projectsButton?.dataset.less ?? 'Show less';
 
 if (projectsButton && projects.length) {
   const desktopVisibleCount = 12;
@@ -1004,10 +1018,10 @@ if (projectsButton && projects.length) {
       });
 
       if (mobileVisible >= projects.length) {
-        projectsButton.textContent = 'Show less';
+        projectsButton.textContent = lessLabel;
         projectsButton.classList.add('is-expanded');
       } else {
-        projectsButton.textContent = 'More Projects';
+        projectsButton.textContent = moreLabel;
         projectsButton.classList.remove('is-expanded');
       }
     } else {
@@ -1023,9 +1037,9 @@ if (projectsButton && projects.length) {
         
         // Управляем текстом кнопки в зависимости от её состояния на десктопе
         if (projectsButton.classList.contains('is-expanded')) {
-          projectsButton.textContent = 'Show less';
+          projectsButton.textContent = lessLabel;
         } else {
-          projectsButton.textContent = 'More Projects';
+          projectsButton.textContent = moreLabel;
         }
       }
     }
@@ -1053,7 +1067,7 @@ if (projectsButton && projects.length) {
           }
         });
         projectsButton.classList.add('is-expanded');
-        projectsButton.textContent = 'Show less';
+        projectsButton.textContent = lessLabel;
       } else {
         projects.forEach((project, index) => {
           if (index >= desktopVisibleCount) {
@@ -1061,7 +1075,7 @@ if (projectsButton && projects.length) {
           }
         });
         projectsButton.classList.remove('is-expanded');
-        projectsButton.textContent = 'More Projects';
+        projectsButton.textContent = moreLabel;
         setTimeout(() => {
           projectsButton.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }, 0);

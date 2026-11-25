@@ -1,5 +1,10 @@
 ---
+import type { Language } from "../i18n";
 
+const { lang = "en", t } = Astro.props as {
+    lang: Language;
+    t: (typeof import("../i18n").translations)["en"];
+};
 ---
 
 <section class="showcase">
@@ -15,7 +20,7 @@
                     </h3>
 
                     <p class="showcase__metric-label">
-                        Verified factories — 350+ in Indonesia, 100+ in China
+                        {t.showcaseFactories}
                     </p>
 
                 </li>
@@ -27,7 +32,7 @@
                     </h3>
 
                     <p class="showcase__metric-label">
-                        Furniture units produced and delivered to site
+                        {t.showcaseUnits}
                     </p>
 
                 </li>
@@ -39,7 +44,7 @@
                     </h3>
 
                     <p class="showcase__metric-label">
-                        Projects completed across Bali
+                        {t.showcaseProjects}
                     </p>
 
                 </li>
@@ -51,7 +56,7 @@
                     </h3>
 
                     <p class="showcase__metric-label">
-                        Years running production & logistics in Indonesia and China
+                        {t.showcaseYears}
                     </p>
 
                 </li>

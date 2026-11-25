@@ -1,5 +1,10 @@
 ---
+import type { Language } from "../i18n";
 
+const { lang = "en", t } = Astro.props as {
+    lang: Language;
+    t: (typeof import("../i18n").translations)["en"];
+};
 ---
 
 <section class="volume">
@@ -12,21 +17,21 @@
 
                 <div class="volume__eyebrow">
                     <span>06</span>
-                    Why volume beats a checklist
+                    {t.volumeEyebrow}
                 </div>
 
                 <h2 class="volume__title">
-                    You run one project. We've run twelve, at once.
+                    {t.volumeTitle}
                 </h2>
 
                 <div class="volume__text">
 
                     <p>
-                        A developer usually has one project running — a large hotel, say, or a villa complex — and leans on an in-house buyer sourcing furniture from scratch for it, against a deadline. We've run twelve projects at once, against the same 450+ factories, on top of 38 completed since we started. That's not a longer supplier list, it's thousands more real purchase cycles than any single procurement team will run in a career: enough to know which factory holds its tolerances and which one quietly substitutes materials when nobody's checking. It also buys a rate no single project can negotiate alone — a factory prices someone ordering weekly, year-round, differently than someone ordering once.
+                        {t.volumeText1}
                     </p>
 
                     <p>
-                        That knowledge doesn't stop compounding when a project ends. We stay inside the same network as buyers running 20-30 years of procurement on these factory floors, and when a developer's project wraps — with us or elsewhere — that experience feeds back into what we check the next factory against. The list of 450+ factories isn't static: it gets more accurate every month because the market keeps talking to us, and we keep testing what it says against our own results.
+                        {t.volumeText2}
                     </p>
 
                 </div>
@@ -38,7 +43,7 @@
                 <div class="volume__number">12</div>
 
                 <div class="volume__label">
-                    Projects we've run in parallel,<br />at once
+                    {t.volumeLabelLine1}<br />{t.volumeLabelLine2}
                 </div>
 
             </div>

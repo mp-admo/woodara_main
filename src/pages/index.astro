@@ -1,76 +1,36 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Hero from "../components/Hero.astro";
-import Showcase from "../components/Showcase.astro";
-import Categories from "../components/Categories.astro";
-import HeroShowcaseDecorations from "../components/decorations/HeroShowcaseDecorations.astro";
-import Projects from "../components/Projects.astro";
-import Audience from "../components/Audience.astro";
-import Scope from "../components/Scope.astro";
-import AudienceScopeDecorations from "../components/decorations/AudienceScopeDecorations.astro";
-import Comparison from "../components/Comparison.astro";
-import Volume from "../components/Volume.astro";
-import Honest from "../components/Honest.astro";
-import Optimization from "../components/Optimization.astro";
-import Process from "../components/Process.astro";
-import WorkflowDecorations from "../components/decorations/WorkflowDecorations.astro";
-import Faq from "../components/Faq.astro";
-import Contact from "../components/Contact.astro";
+// The site lives under /en/ and /id/. The root only forwards to the right one:
+// Indonesian for browsers that prefer it, English otherwise.
 ---
 
-<Layout>
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Woodara</title>
+        <meta name="robots" content="noindex" />
+        <link rel="canonical" href="/en/" />
+        <meta http-equiv="refresh" content="0;url=/en/" />
 
-    <div class="hero-showcase">
+        <script is:inline>
+            var languages = navigator.languages || [navigator.language || ""];
+            var target = "/en/";
 
-        <Hero />
-        <Showcase />
-        <Categories />
-        <HeroShowcaseDecorations />
+            for (var i = 0; i < languages.length; i++) {
+                var code = String(languages[i]).toLowerCase().slice(0, 2);
 
-    </div>
+                if (code === "id" || code === "en") {
+                    target = "/" + code + "/";
+                    break;
+                }
+            }
 
-    <Projects />
+            window.location.replace(target + window.location.search + window.location.hash);
+        </script>
+    </head>
 
-    <div class="audience-scope">
-
-        <Audience />
-        <Scope />
-        <AudienceScopeDecorations />
-
-    </div>
-
-    <Comparison />
-
-    <div class="workflow">
-
-        <Volume />
-        <Honest />
-        <Optimization />
-        <Process />
-        <WorkflowDecorations />
-
-    </div>
-
-    <Faq />
-
-    <Contact />
-	
-</Layout>
-
-<style>
-
-    .hero-showcase {
-        position: relative;
-        overflow: hidden;
-    }
-
-    .audience-scope {
-        position: relative;
-    }
-
-    .workflow {
-        position: relative;
-        overflow: hidden;
-    }
-
-</style>
+    <body>
+        <a href="/en/">Woodara</a>
+    </body>
+</html>

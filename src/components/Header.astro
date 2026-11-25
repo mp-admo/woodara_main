@@ -1,48 +1,89 @@
 ---
+import type { Language } from "../i18n";
 
+const { lang = "en", t } = Astro.props as {
+    lang: Language;
+    t: (typeof import("../i18n").translations)["en"];
+};
+
+// Same page in the other language: strip the current language prefix from the path
+const pagePath = Astro.url.pathname.replace(new RegExp(`^/${lang}(?=/|$)`), "") || "/";
 ---
 
 <header class="header">
 
     <nav class="header__nav">
 
-        <a href="/" class="logo">
+        <a href={`/${lang}/`} class="logo">
             <img src="/logo_woodara.svg" alt="Woodara">
         </a>
 
         <div class="header__menu">
 
             <a href="#categories" class="header__menu-link">
-                Product categories
+                {t.headerCategories}
             </a>
 
             <a href="#projects" class="header__menu-link">
-                Projects
+                {t.headerProjects}
             </a>
 
             <a href="#scope" class="header__menu-link">
-                Scope
+                {t.headerScope}
             </a>
 
             <a href="#process" class="header__menu-link">
-                Process
+                {t.headerProcess}
             </a>
 
             <a href="#contact" class="header__menu-link">
-                Contact
+                {t.headerContact}
             </a>
 
             <a href="#" class="header__menu-link">
-                About us
+                {t.headerAboutus}
             </a>
 
         </div>
 
-        <a href="#contact" class="header__button">
-            Get a project review
-        </a>
+        <div class="header__actions">
 
-        <button class="burger-button" aria-label="Open menu">
+            <div class="language-switcher">
+
+                <button
+                    class="language-switcher__button"
+                    aria-label={t.headerLanguageLabel}
+                    aria-expanded="false"
+                    type="button"
+                >
+                    <img
+                        class="language-switcher__current-flag"
+                        src={lang === "en" ? "/flags/united-kingdom.png" : "/flags/Indonesia.png"}
+                        alt=""
+                    />
+                </button>
+
+                <div class="language-switcher__dropdown">
+
+                    <a href={`/en${pagePath}`} aria-label="English" aria-current={lang === "en" ? "true" : undefined}>
+                        <img src="/flags/united-kingdom.png" alt="" />
+                    </a>
+
+                    <a href={`/id${pagePath}`} aria-label="Bahasa Indonesia" aria-current={lang === "id" ? "true" : undefined}>
+                        <img src="/flags/Indonesia.png" alt="" />
+                    </a>
+
+                </div>
+
+            </div>
+
+            <a href="#contact" class="header__button">
+                {t.headerButton}
+            </a>
+
+        </div>
+
+        <button class="burger-button" aria-label={t.headerMenuLabel}>
             <span></span>
             <span></span>
             <span></span>
@@ -57,39 +98,39 @@
     <nav class="mobile-menu__nav">
 
         <a href="#categories" class="mobile-menu__link">
-            Product categories
+            {t.headerCategories}
         </a>
 
         <a href="#projects" class="mobile-menu__link">
-            Projects
+            {t.headerProjects}
         </a>
 
         <a href="#scope" class="mobile-menu__link">
-            Scope
+            {t.headerScope}
         </a>
 
         <a href="#process" class="mobile-menu__link">
-            Process
+            {t.headerProcess}
         </a>
 
         <a href="#contact" class="mobile-menu__link">
-            Contact
+            {t.headerContact}
         </a>
 
         <a href="#" class="mobile-menu__link">
-            About the company
+            {t.headerAboutus}
         </a>
 
     </nav>
 
      <a href="#contact" class="mobile-menu__button">
-        Get a project review
+        {t.headerButton}
     </a>
 
 </div>
 
-<style>
 
+<style>
     .header {
         width: 100%;
         height: 6.2rem;
@@ -141,7 +182,14 @@
     }
 
     .header__menu-link:hover {
-        color: var(--color-accent)
+        color: var(--color-accent);
+    }
+
+    .header__actions {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        flex-shrink: 0;
     }
 
     .header__button {
@@ -157,7 +205,6 @@
         color: #151516;
         text-decoration: none;
         cursor: pointer;
-
         transition: background-color 0.5s ease;
     }
 
@@ -166,9 +213,101 @@
         color: #fff;
     }
 
+    /* Language switcher */
+
+    .language-switcher {
+        position: relative;
+        flex-shrink: 0;
+    }
+
+    .language-switcher__button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: 0;
+        border: none;
+        background: transparent;
+
+        cursor: pointer;
+    }
+
+    .language-switcher__current-flag {
+        display: block;
+        width: 3.6rem;
+        height: 2.6rem;
+        object-fit: contain;
+    }
+
+    .language-switcher__dropdown {
+        position: absolute;
+        top: calc(100% + 1rem);
+        right: 0;
+
+        display: flex;
+        flex-direction: column;
+
+        min-width: 7rem;
+        padding: 0.5rem 0;
+
+        background: #fff;
+        box-shadow: 0 0.4rem 1.5rem rgba(0, 0, 0, 0.12);
+
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-0.5rem);
+
+        transition: 0.2s ease;
+        z-index: 300;
+    }
+
+    .language-switcher.is-open .language-switcher__dropdown {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .language-switcher__dropdown a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: 1rem 1.5rem;
+
+        text-decoration: none;
+        cursor: pointer;
+
+        transition: background-color 0.2s ease;
+    }
+
+    .language-switcher__dropdown a:hover {
+        background-color: #f2f2f2;
+    }
+
+    .language-switcher__dropdown img {
+        display: block;
+        width: 3.2rem;
+        height: 2.2rem;
+        object-fit: contain;
+    }
+
+    .language-switcher__current-flag,
+    .language-switcher__dropdown img {
+        transition: transform 0.2s ease;
+    }
+
+    .language-switcher__button:hover .language-switcher__current-flag,
+    .language-switcher__dropdown a:hover img {
+        transform: translateY(-1px);
+    }
+
+    /* Burger button */
+
     .burger-button {
         display: none;
     }
+
+    /* Mobile menu */
 
     .mobile-menu {
         position: fixed;
@@ -191,7 +330,6 @@
         opacity: 1;
         visibility: visible;
     }
-
 
     .mobile-menu__close span {
         position: absolute;
@@ -242,10 +380,17 @@
     }
 
     @media (max-width: 768px) {
-
         .header__menu,
         .header__button {
             display: none;
+        }
+
+        .header__actions {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            margin-left: auto;
+            margin-right: 2rem;
         }
 
         .header__nav {
@@ -297,10 +442,9 @@
         .burger-button--active span:nth-child(3) {
             transform: translateY(-0.6rem) rotate(-45deg);
         }
-
     }
-
 </style>
+
 
 <script>
 
@@ -336,6 +480,40 @@
         });
 
     }
+
+    const languageSwitcher = document.querySelector(".language-switcher");
+    const languageButton = document.querySelector(".language-switcher__button");
+
+    if (languageSwitcher && languageButton) {
+        languageButton.addEventListener("click", (event) => {
+            event.stopPropagation();
+
+            const isOpen = languageSwitcher.classList.toggle("is-open");
+
+            languageButton.setAttribute("aria-expanded", String(isOpen));
+        });
+
+        document.addEventListener("click", (event) => {
+            if (!(event.target instanceof Node) || !languageSwitcher.contains(event.target)) {
+                languageSwitcher.classList.remove("is-open");
+                languageButton.setAttribute("aria-expanded", "false");
+            }
+        });
+    }
+
+    // Keep query string (UTM) and hash when switching language
+    const languageLinks = document.querySelectorAll<HTMLAnchorElement>(".language-switcher__dropdown a");
+
+    languageLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+            const url = new URL(link.href);
+
+            url.search = window.location.search;
+            url.hash = window.location.hash;
+
+            link.href = url.toString();
+        });
+    });
 
 </script>
 

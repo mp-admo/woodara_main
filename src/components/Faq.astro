@@ -1,5 +1,10 @@
 ---
+import type { Language } from "../i18n";
 
+const { lang = "en", t } = Astro.props as {
+    lang: Language;
+    t: (typeof import("../i18n").translations)["en"];
+};
 ---
 
 <section class="faq">
@@ -15,11 +20,11 @@
 
         <div class="faq__eyebrow">
             <span>10</span>
-            Before you ask
+            {t.faqEyebrow}
         </div>
 
         <h2 class="faq__title">
-            The questions every procurement lead asks first
+            {t.faqTitle}
         </h2>
 
         <div class="faq__list">
@@ -28,7 +33,7 @@
 
                 <div class="faq__question">
                     <h4>
-                        What happens if a factory runs behind schedule?
+                        {t.faqQuestion1}
                     </h4>
 
                     <span class="faq__icon">-</span>
@@ -36,7 +41,7 @@
 
                 <div class="faq__answer">
                     <p>
-                        Large orders can be split across multiple factories in parallel, so one delay doesn't stall the whole order. Your account manager reports on status continuously rather than at the end of the run.
+                        {t.faqAnswer1}
                     </p>
                 </div>
 
@@ -47,7 +52,7 @@
 
                 <div class="faq__question">
                     <h4>
-                        How do you guarantee material quality?
+                        {t.faqQuestion2}
                     </h4>
 
                     <span class="faq__icon">+</span>
@@ -55,7 +60,7 @@
 
                 <div class="faq__answer">
                     <p>
-                        Every order is tested against its stated spec before shipping. We work only with factories that have passed our audit process, and interim inspections happen during production, not just at final packing.
+                        {t.faqAnswer2}
                     </p>
                 </div>
 
@@ -66,7 +71,7 @@
 
                 <div class="faq__question">
                     <h4>
-                        What if something arrives damaged?
+                        {t.faqQuestion3}
                     </h4>
 
                     <span class="faq__icon">+</span>
@@ -74,7 +79,7 @@
 
                 <div class="faq__answer">
                     <p>
-                        Our internal packaging standard is built to eliminate damage in transit. When something still goes wrong, it's handled directly with us — not a claims process against a factory you have no relationship with.
+                        {t.faqAnswer3}
                     </p>
                 </div>
 
@@ -85,7 +90,7 @@
 
                 <div class="faq__question">
                     <h4>
-                        We can't find the exact piece we need — what then?
+                        {t.faqQuestion4}
                     </h4>
 
                     <span class="faq__icon">+</span>
@@ -93,7 +98,7 @@
 
                 <div class="faq__answer">
                     <p>
-                        Send a photo or reference. Across 450+ factories we can usually match it closely; where there's no match, we arrange custom production against your spec.
+                        {t.faqAnswer4}
                     </p>
                 </div>
 
@@ -104,7 +109,7 @@
 
                 <div class="faq__question">
                     <h4>
-                        How is this different from hiring our own buyer in Indonesia?
+                        {t.faqQuestion5}
                     </h4>
 
                     <span class="faq__icon">+</span>
@@ -112,7 +117,7 @@
 
                 <div class="faq__answer">
                     <p>
-                        A buyer sees the factories they already know. We shortlist and tender every order from a network of 450+ factories, plus handle customs, freight and installation — work that would otherwise mean hiring a logistics team as well as a buyer.
+                        {t.faqAnswer5}
                     </p>
                 </div>
 

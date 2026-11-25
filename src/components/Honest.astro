@@ -1,5 +1,10 @@
 ---
+import type { Language } from "../i18n";
 
+const { lang = "en", t } = Astro.props as {
+    lang: Language;
+    t: (typeof import("../i18n").translations)["en"];
+};
 ---
 
 <section class="honest">
@@ -15,9 +20,9 @@
                 </div>
 
                 <div class="honest__label">
-                    Fixed fee on top of the factory's<br>
-                    price — the same rate whether<br>
-                    that price is low or high
+                    {t.honestLabelLine1}<br>
+                    {t.honestLabelLine2}<br>
+                    {t.honestLabelLine3}
                 </div>
 
             </div>
@@ -26,25 +31,25 @@
 
                 <div class="honest__eyebrow">
                     <span>07</span>
-                    The honest question
+                    {t.honestEyebrow}
                 </div>
 
                 <h2 class="honest__title">
-                    Aren't you just a middleman with a markup?
+                    {t.honestTitle}
                 </h2>
 
                 <div class="honest__text">
 
                     <p>
-                        We pass through the factory's price and add a fixed 10% on top of it — not folded into the number. What stays with us is which factory it is: that relationship is built across every client we work with, and it's what keeps the rate down on your next project too, not just this one. We don't gain from a bigger invoice either way — you're free to compare our price against other suppliers, and inflating one quote isn't worth losing a developer we could be working with for the next ten projects. Loyo, PARQ, SWOI, Dodo Pizza and Escape have each brought us more than one project.
+                        {t.honestText1}
                         <br><br>
-                        The number you sign is the number you pay. Installation, freight and customs are priced into that first quote — if we or the factory missed something, that's on us to absorb, not on you to cover later. A scope change you request is a new line item we agree on together, never a surprise on the final invoice.
+                        {t.honestText2}
                     </p>
 
                 </div>
 
                 <a href="#contact" class="honest__button">
-                    Get a comparative quote for your project
+                    {t.honestButton}
                 </a>
 
             </div>

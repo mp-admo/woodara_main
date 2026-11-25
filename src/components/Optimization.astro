@@ -1,5 +1,10 @@
 ---
+import type { Language } from "../i18n";
 
+const { lang = "en", t } = Astro.props as {
+    lang: Language;
+    t: (typeof import("../i18n").translations)["en"];
+};
 ---
 
 <section class="optimization">
@@ -12,21 +17,21 @@
 
                 <div class="optimization__eyebrow">
                     <span>08</span>
-                    Design that costs less to build
+                    {t.optimizationEyebrow}
                 </div>
 
                 <h2 class="optimization__title">
-                    Optimizing the spec isn't the same as cutting the design.
+                    {t.optimizationTitle}
                 </h2>
 
                 <div class="optimization__text">
 
                     <p>
-                        A bloated quote doesn't survive being compared against other suppliers, so proposing one costs us the tender, not just your trust — right-sizing your spec is how we win the work, not a favor on top of it. It comes back in tiers, not one number, because there's more than one way to hit a budget without touching the design intent. On a real 45-room hotel, a moderate pass on construction and materials cut the furniture spec by 23%; pushing further — different joinery, different install method, same nine pieces per room — got to 26%. Original spec: roughly $247,500. Re-engineered: $182,200-191,600.
+                        {t.optimizationText1}
                     </p>
 
                     <p>
-                        Your own range depends on what you're willing to trade at each tier and your own materials — this is what it looked like on one real project, not a promised percentage.
+                        {t.optimizationText2}
                     </p>
 
                 </div>
@@ -40,12 +45,12 @@
                 </div>
 
                 <div class="optimization__label">
-                    Cost reduction on a real 45-room hotel fit-out<br>
-                    in Bali — without changing the design
+                    {t.optimizationLabelLine1}<br>
+                    {t.optimizationLabelLine2}
                 </div>
 
                 <a href="#contact" class="optimization__button">
-                    Optimize my project's budget
+                    {t.optimizationButton}
                 </a>
 
             </div>
@@ -60,7 +65,7 @@
                 </h3>
 
                 <p>
-                    Entry door — hidden-mount instead of sliding-in-frame
+                    {t.optimizationResult1}
                 </p>
             </li>
 
@@ -70,7 +75,7 @@
                 </h3>
 
                 <p>
-                    Sofa — matched stitch detail instead of deep tufting
+                    {t.optimizationResult2}
                 </p>
             </li>
 
@@ -80,7 +85,7 @@
                 </h3>
 
                 <p>
-                    Wardrobe — modular 6-panel build, 2 installers not 3
+                    {t.optimizationResult3}
                 </p>
             </li>
 
@@ -90,7 +95,7 @@
                 </h3>
 
                 <p>
-                    Kitchen unit — fluted wet-zone facade swapped for a flat panel + marble backsplash
+                    {t.optimizationResult4}
                 </p>
 
             </li>
