@@ -59,7 +59,7 @@ export default {
     categoryArchitecturalTrimDescription: "Profil shadow gap untuk plafon dan dinding",
 
     // Projects
-    projectsEyebrow: "Untuk siapa layanan ini",
+    projectsEyebrow: "Proyek terbaru",
     projectsTitleStart: "38 proyek di Bali.",
     projectsTitleEnd: "Ini gambaran awalnya.",
     projectsDescription: "Studi kasus tertulis lengkap dirilis bertahap untuk setiap proyek — untuk saat ini, lihat skala dan hasil akhir vila, hunian, dan interior hospitality kami.",
@@ -71,9 +71,9 @@ export default {
     builtForTitle: "Untuk yang menanggung risiko di lapangan",
     builtForDescription: "Bukan katalog furnitur — melainkan sistem kendali untuk bagian proyek yang paling sulit diprediksi: puluhan vendor, area produksi yang tak terlihat, dan tanggal pengiriman yang ditunggu klien Anda.",
 
-    builtForCard1Eyebrow: "Untuk siapa layanan ini",
+    builtForCard1Eyebrow: "Developer & pemilik vila",
     builtForCard1Title: "Lengkapi 6 hingga 255 unit tanpa tim pengadaan",
-    builtForCard1Description: "Bukan katalog furnitur — melainkan sistem kendali untuk bagian proyek yang paling sulit diprediksi: puluhan vendor, area produksi yang tak terlihat, dan tanggal pengiriman yang ditunggu klien Anda.",
+    builtForCard1Description: "Satu tim menangani pengadaan, tender di lebih dari 450 pabrik terverifikasi, kontrol kualitas dan pengiriman — sehingga Anda mendapat harga pabrik tanpa perlu membangun tim pengadaan sendiri.",
 
     builtForCard2Eyebrow: "Hospitality & F&B",
     builtForCard2Title: "Furnitur andal dengan layanan garansi responsif",

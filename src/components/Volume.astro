@@ -83,7 +83,7 @@ const { lang = "en", t } = Astro.props as {
         display: flex;
         align-items: center;
         gap: 1rem;
-        font-family: 'TT Firs Neue', sans-serif;
+        font-family: var(--font-display);
         color: #58585A;
         font-size: 1.6rem;
         letter-spacing: -0.03em;
@@ -136,13 +136,13 @@ const { lang = "en", t } = Astro.props as {
     .volume__number {
         color: #151516;
         font-size: clamp(10rem, 11vw, 12.8rem);
-        font-family: 'TT Firs Neue', sans-serif;
+        font-family: var(--font-display);
         line-height: 1.1;
     }
 
     .volume__label {
         color: #58585A;
-        font-family: 'TT Firs Neue', sans-serif;
+        font-family: var(--font-display);
         letter-spacing: -0.03em;
         font-size: 1.6rem;
         line-height: 1.4;

@@ -285,7 +285,7 @@ const { lang = "en", t } = Astro.props as {
     .process__number {
         width: 5rem;
         flex-shrink: 0;
-        font-family: 'TT Firs Neue', sans-serif;
+        font-family: var(--font-display);
         font-size: 1.8rem;
         letter-spacing: -0.03em;
         color: var(--color-accent);
@@ -299,7 +299,7 @@ const { lang = "en", t } = Astro.props as {
 
     .process__item-title {
         color: #151516;
-        font-family: 'Outfit', sans-serif;
+        font-family: var(--font-heading);
         font-weight: 300;
     }
 
@@ -336,7 +336,7 @@ const { lang = "en", t } = Astro.props as {
         align-items: flex-start;
         gap: 1rem;
         color: #58585A;
-        font-family: 'TT Firs Neue', sans-serif;
+        font-family: var(--font-display);
         font-size: 1.6rem;
         line-height: 1;
         letter-spacing: -0.03em;

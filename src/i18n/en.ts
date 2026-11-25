@@ -59,7 +59,7 @@ export default {
 	categoryArchitecturalTrimDescription: "Shadow-gap profiles for ceilings and walls",
 	
 	// Projects
-	projectsEyebrow: "Who this is built for",
+	projectsEyebrow: "Recent work",
 	projectsTitleStart: "38 projects across Bali.",
 	projectsTitleEnd: "Here's a first look.",
 	projectsDescription: "Full written case studies are being published project by project — for now, a look at scale and finish across villas, residences and hospitality fit-outs.",
@@ -71,9 +71,9 @@ export default {
 	builtForTitle: "Built for the people who carry the risk on site",
 	builtForDescription: "Not a furniture catalogue — a control system for the part of your project that's hardest to predict: dozens of vendors, a factory floor you can't see, and a delivery date your own client is counting on.",
 
-	builtForCard1Eyebrow: "Who this is built for",
+	builtForCard1Eyebrow: "Developers & villa owners",
 	builtForCard1Title: "Furnish 6 to 255 units without hiring a procurement team",
-	builtForCard1Description: "Not a furniture catalogue — a control system for the part of your project that's hardest to predict: dozens of vendors, a factory floor you can't see, and a delivery date your own client is counting on.",
+	builtForCard1Description: "One team handles sourcing, tendering across 450+ verified factories, quality control and delivery — so you get factory pricing without building a procurement department of your own.",
 
 	builtForCard2Eyebrow: "Hospitality & F&B",
 	builtForCard2Title: "Furniture built to stay open, and a warranty line that answers",

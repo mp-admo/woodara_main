@@ -138,7 +138,7 @@ const { lang = "en", t } = Astro.props as {
         display: flex;
         align-items: center;
         gap: 1rem;
-        font-family: 'TT Firs Neue', sans-serif;
+        font-family: var(--font-display);
         color: #58585A;
         font-size: 1.6rem;
         letter-spacing: -0.03em;
@@ -220,7 +220,7 @@ const { lang = "en", t } = Astro.props as {
     }
 
     .scope__number {
-        font-family: 'TT Firs Neue', sans-serif;
+        font-family: var(--font-display);
         letter-spacing: -0.03em;
         color: var(--color-accent);
         font-size: 1.8rem;
@@ -229,7 +229,7 @@ const { lang = "en", t } = Astro.props as {
 
     .scope__item p {
         max-width: 68rem;
-        font-family: 'Outfit', sans-serif;
+        font-family: var(--font-heading);
         letter-spacing: -0.03rem;
         color: #151516;
         font-size: 2.2rem;

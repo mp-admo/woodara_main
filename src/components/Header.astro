@@ -1,5 +1,5 @@
 ---
-import type { Language } from "../i18n";
+import { languages, type Language } from "../i18n";
 
 const { lang = "en", t } = Astro.props as {
     lang: Language;
@@ -58,20 +58,19 @@ const pagePath = Astro.url.pathname.replace(new RegExp(`^/${lang}(?=/|$)`), "") 
                 >
                     <img
                         class="language-switcher__current-flag"
-                        src={lang === "en" ? "/flags/united-kingdom.png" : "/flags/Indonesia.png"}
+                        src={languages[lang].flag}
                         alt=""
                     />
                 </button>
 
                 <div class="language-switcher__dropdown">
 
-                    <a href={`/en${pagePath}`} aria-label="English" aria-current={lang === "en" ? "true" : undefined}>
-                        <img src="/flags/united-kingdom.png" alt="" />
-                    </a>
-
-                    <a href={`/id${pagePath}`} aria-label="Bahasa Indonesia" aria-current={lang === "id" ? "true" : undefined}>
-                        <img src="/flags/Indonesia.png" alt="" />
-                    </a>
+                    {Object.entries(languages).map(([code, language]) => (
+                        <a href={`/${code}${pagePath}`} aria-label={language.label} aria-current={lang === code ? "true" : undefined}>
+                            <img src={language.flag} alt="" />
+                            <span class="language-switcher__code">{code.toUpperCase()}</span>
+                        </a>
+                    ))}
 
                 </div>
 
@@ -171,7 +170,7 @@ const pagePath = Astro.url.pathname.replace(new RegExp(`^/${lang}(?=/|$)`), "") 
     }
 
     .header__menu-link {
-        font-family: 'Outfit', sans-serif;
+        font-family: var(--font-heading);
         font-size: 1.7rem;
         letter-spacing: -0.03em;
         color: #151516;
@@ -196,7 +195,7 @@ const pagePath = Astro.url.pathname.replace(new RegExp(`^/${lang}(?=/|$)`), "") 
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        font-family: 'Outfit', sans-serif;
+        font-family: var(--font-heading);
         letter-spacing: -0.03em;
         padding: 1rem 2rem;
         font-weight: 400;
@@ -234,9 +233,11 @@ const pagePath = Astro.url.pathname.replace(new RegExp(`^/${lang}(?=/|$)`), "") 
 
     .language-switcher__current-flag {
         display: block;
-        width: 3.6rem;
-        height: 2.6rem;
+        width: 2.4rem;
+        height: 2.4rem;
         object-fit: contain;
+        border-radius: 50%;
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.12);
     }
 
     .language-switcher__dropdown {
@@ -247,6 +248,7 @@ const pagePath = Astro.url.pathname.replace(new RegExp(`^/${lang}(?=/|$)`), "") 
         display: flex;
         flex-direction: column;
 
+        width: max-content;
         min-width: 7rem;
         padding: 0.5rem 0;
 
@@ -270,7 +272,8 @@ const pagePath = Astro.url.pathname.replace(new RegExp(`^/${lang}(?=/|$)`), "") 
     .language-switcher__dropdown a {
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
+        gap: 1rem;
 
         padding: 1rem 1.5rem;
 
@@ -284,11 +287,20 @@ const pagePath = Astro.url.pathname.replace(new RegExp(`^/${lang}(?=/|$)`), "") 
         background-color: #f2f2f2;
     }
 
+    .language-switcher__code {
+        font-size: 1.4rem;
+        font-weight: 400;
+        line-height: 1;
+        color: #151516;
+    }
+
     .language-switcher__dropdown img {
         display: block;
-        width: 3.2rem;
-        height: 2.2rem;
+        width: 2.4rem;
+        height: 2.4rem;
         object-fit: contain;
+        border-radius: 50%;
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.12);
     }
 
     .language-switcher__current-flag,
@@ -356,7 +368,7 @@ const pagePath = Astro.url.pathname.replace(new RegExp(`^/${lang}(?=/|$)`), "") 
     }
 
     .mobile-menu__link {
-        font-family: 'Outfit', sans-serif;
+        font-family: var(--font-heading);
         font-size: 2.4rem;
         letter-spacing: -0.03em;
         color: #151516;
@@ -368,7 +380,7 @@ const pagePath = Astro.url.pathname.replace(new RegExp(`^/${lang}(?=/|$)`), "") 
         align-items: center;
         justify-content: center;
 
-        font-family: "Outfit", sans-serif;
+        font-family: var(--font-heading);
         font-size: 1.8rem;
         letter-spacing: -0.03em;
         padding: 1.5rem 2.7rem;
@@ -501,7 +513,7 @@ const pagePath = Astro.url.pathname.replace(new RegExp(`^/${lang}(?=/|$)`), "") 
         });
     }
 
-    // Keep query string (UTM) and hash when switching language
+    // Keep the query string (UTM) when switching language; the page opens from the top
     const languageLinks = document.querySelectorAll<HTMLAnchorElement>(".language-switcher__dropdown a");
 
     languageLinks.forEach((link) => {
@@ -509,7 +521,6 @@ const pagePath = Astro.url.pathname.replace(new RegExp(`^/${lang}(?=/|$)`), "") 
             const url = new URL(link.href);
 
             url.search = window.location.search;
-            url.hash = window.location.hash;
 
             link.href = url.toString();
         });

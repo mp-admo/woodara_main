@@ -1,6 +1,8 @@
 ---
-// The site lives under /en/ and /id/. The root only forwards to the right one:
-// Indonesian for browsers that prefer it, English otherwise.
+import { languageCodes } from "../i18n";
+
+// The site lives under /en/, /id/ and /ru/. The root only forwards to the right one:
+// the first supported language of the browser, English otherwise.
 ---
 
 <!doctype html>
@@ -13,14 +15,14 @@
         <link rel="canonical" href="/en/" />
         <meta http-equiv="refresh" content="0;url=/en/" />
 
-        <script is:inline>
+        <script is:inline define:vars={{ supported: languageCodes }}>
             var languages = navigator.languages || [navigator.language || ""];
             var target = "/en/";
 
             for (var i = 0; i < languages.length; i++) {
                 var code = String(languages[i]).toLowerCase().slice(0, 2);
 
-                if (code === "id" || code === "en") {
+                if (supported.indexOf(code) !== -1) {
                     target = "/" + code + "/";
                     break;
                 }
